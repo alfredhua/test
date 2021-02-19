@@ -1,0 +1,14 @@
+plugins {
+    id "java-library"
+}
+
+
+group 'java-arithmetic'
+version "$projectVersion"
+
+dependencies {
+
+
+}
+
+

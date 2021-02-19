@@ -1,0 +1,23 @@
+rootProject.name = 'test'
+
+include ':common'
+project(':common').projectDir = file('common')
+
+include ':java-jvm'
+project(':java-jvm').projectDir = file('java-jvm')
+include ':java-arithmetic'
+project(':java-arithmetic').projectDir = file('java-arithmetic')
+
+include ':self-mybatis'
+project(':self-mybatis').projectDir = file('self-mybatis')
+include ':self-spring'
+project(':self-spring').projectDir = file('self-spring')
+include ':zookeeper'
+project(':zookeeper').projectDir = file('zookeeper')
+
+include ':elasticsearch'
+project(':elasticsearch').projectDir = file('elasticsearch')
+
+
+include ':rabbitmq'
+project(':rabbitmq').projectDir = file('rabbitmq')
