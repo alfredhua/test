@@ -9,10 +9,7 @@ import org.springframework.data.elasticsearch.repository.config.EnableElasticsea
 /**
  * @author hua
  */
-@SpringBootApplication
-@EnableElasticsearchRepositories(
-        basePackages = "com.es.resp"
-)
+
 public class EsServiceApplication {
 
     private static Logger logger = LoggerFactory.getLogger(EsServiceApplication.class);
@@ -20,7 +17,7 @@ public class EsServiceApplication {
 
     public static void main(String[] args){
 
-        SpringApplication.run(EsServiceApplication.class,args);
+        SpringApplication.run(Core.class,args);
 
     }
 

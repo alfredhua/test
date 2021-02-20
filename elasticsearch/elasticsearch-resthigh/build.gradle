@@ -1,0 +1,20 @@
+plugins {
+    id "java-library"
+}
+
+
+group 'elasticsearch-resthigh'
+version "$projectVersion"
+
+dependencies {
+
+    implementation 'org.elasticsearch.client:elasticsearch-rest-high-level-client:7.1.1'
+
+    implementation "org.springframework.boot:spring-boot-starter-test:$springBootVersion"
+    implementation 'junit:junit:4.12'
+
+    implementation ("org.springframework.boot:spring-boot-starter-web:$springBootVersion")
+
+}
+
+

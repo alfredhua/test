@@ -3,10 +3,10 @@ rootProject.name = 'test'
 include ':common'
 project(':common').projectDir = file('common')
 
-include ':java-jvm'
-project(':java-jvm').projectDir = file('java-jvm')
-include ':java-arithmetic'
-project(':java-arithmetic').projectDir = file('java-arithmetic')
+include ':java:java-jvm'
+project(':java:java-jvm').projectDir = file('java/java-jvm')
+include ':java:java-arithmetic'
+project(':java:java-arithmetic').projectDir = file('java/java-arithmetic')
 
 include ':self-mybatis'
 project(':self-mybatis').projectDir = file('self-mybatis')
@@ -14,10 +14,11 @@ include ':self-spring'
 project(':self-spring').projectDir = file('self-spring')
 include ':zookeeper'
 project(':zookeeper').projectDir = file('zookeeper')
-
-include ':elasticsearch'
-project(':elasticsearch').projectDir = file('elasticsearch')
-
-
 include ':rabbitmq'
 project(':rabbitmq').projectDir = file('rabbitmq')
+
+include ':elasticsearch:elasticsearch-transport'
+project(':elasticsearch:elasticsearch-transport').projectDir = file('elasticsearch/elasticsearch-transport')
+include ':elasticsearch:elasticsearch-resthigh'
+project(':elasticsearch:elasticsearch-resthigh').projectDir = file('elasticsearch/elasticsearch-resthigh')
+

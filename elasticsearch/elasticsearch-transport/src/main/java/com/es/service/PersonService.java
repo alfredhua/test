@@ -17,7 +17,6 @@ import java.util.List;
  * @date 2020/03/29
  */
 @Component
-
 public class PersonService  implements ApplicationContextAware {
 
     @Autowired
