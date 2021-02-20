@@ -1,0 +1,12 @@
+group 'consume-feign'
+version "$projectVersion"
+
+jar {
+    enabled=true
+}
+
+dependencies {
+
+    compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-openfeign', version: '2.2.3.RELEASE'
+
+}

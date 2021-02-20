@@ -1,0 +1,31 @@
+plugins {
+    id 'org.springframework.boot' version '1.5.13.RELEASE'
+}
+jar {
+    baseName = 'eureka-server'
+}
+
+
+group 'manage'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin: 'maven'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenLocal()
+    maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+    mavenCentral()
+}
+
+dependencies {
+
+    compile('org.springframework.cloud:spring-cloud-starter-config:1.4.2.RELEASE')
+    compile('org.springframework.cloud:spring-cloud-starter-eureka-server:1.4.2.RELEASE')
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+
+}
+defaultTasks 'clean', 'bootRun'
+

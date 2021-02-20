@@ -1,0 +1,11 @@
+group 'consume-ribbon'
+version "$projectVersion"
+
+jar {
+    enabled=true
+}
+
+dependencies {
+    compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-netflix-ribbon', version: '2.2.3.RELEASE'
+
+}

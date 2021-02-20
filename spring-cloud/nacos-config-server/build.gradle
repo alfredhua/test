@@ -1,0 +1,13 @@
+group 'nacos-config-server'
+version "$projectVersion"
+
+
+jar {
+    enabled=true
+}
+
+
+dependencies {
+
+
+}

@@ -8,10 +8,11 @@ project(':java:java-jvm').projectDir = file('java/java-jvm')
 include ':java:java-arithmetic'
 project(':java:java-arithmetic').projectDir = file('java/java-arithmetic')
 
-include ':self-mybatis'
-project(':self-mybatis').projectDir = file('self-mybatis')
-include ':self-spring'
-project(':self-spring').projectDir = file('self-spring')
+include ':self:self-mybatis'
+project(':self:self-mybatis').projectDir = file('self/self-mybatis')
+include ':self:self-spring'
+project(':self:self-spring').projectDir = file('self/self-spring')
+
 include ':zookeeper'
 project(':zookeeper').projectDir = file('zookeeper')
 include ':rabbitmq'
@@ -22,3 +23,27 @@ project(':elasticsearch:elasticsearch-transport').projectDir = file('elasticsear
 include ':elasticsearch:elasticsearch-resthigh'
 project(':elasticsearch:elasticsearch-resthigh').projectDir = file('elasticsearch/elasticsearch-resthigh')
 
+
+include ':spring-cloud:eureka:dictionary-client'
+project(':spring-cloud:eureka:dictionary-client').projectDir = file('spring-cloud/eureka/dictionary-client')
+include ':spring-cloud:eureka:dictionary-server'
+project(':spring-cloud:eureka:dictionary-server').projectDir = file('spring-cloud/eureka/dictionary-server')
+include ':spring-cloud:eureka:eureka'
+project(':spring-cloud:eureka:eureka').projectDir = file('spring-cloud/eureka/eureka')
+
+include ':spring-cloud:server'
+project(':spring-cloud:server').projectDir = file('spring-cloud/server')
+include ':spring-cloud:server2'
+project(':spring-cloud:server2').projectDir = file('spring-cloud/server2')
+include ':spring-cloud:consume'
+project(':spring-cloud:consume').projectDir = file('spring-cloud/m-consume')
+include ':spring-cloud:consume-ribbon'
+project(':spring-cloud:consume-ribbon').projectDir = file('spring-cloud/m-consume-ribbon')
+include ':spring-cloud:consume-feign'
+project(':spring-cloud:consume-feign').projectDir = file('spring-cloud/m-consume-feign')
+include ':spring-cloud:config-server'
+project(':spring-cloud:config-server').projectDir = file('spring-cloud/config-server')
+include ':spring-cloud:config-client'
+project(':spring-cloud:config-client').projectDir = file('spring-cloud/config-client')
+include ':spring-cloud:hystrix-client'
+project(':spring-cloud:hystrix-client').projectDir = file('spring-cloud/hystrix-client')

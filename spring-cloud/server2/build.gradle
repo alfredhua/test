@@ -1,0 +1,11 @@
+group 'server'
+version "$projectVersion"
+
+jar {
+    enabled=true
+}
+
+dependencies {
+
+
+}

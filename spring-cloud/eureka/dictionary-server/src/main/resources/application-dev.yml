@@ -1,0 +1,21 @@
+server:
+  port: 3205
+
+spring:
+  application:
+    name: dictionary-server
+management:
+  context-path: /dictionary
+
+jdbc:
+    url: jdbc:mysql://127.0.0.1:3306/manage_dictionary?useUnicode=true&characterEncoding=utf8&useSSL=false
+    username: manage
+    password: manage
+    driverClassName: com.mysql.cj.jdbc.Driver
+    maxPoolSize: 1
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+

@@ -1,0 +1,66 @@
+server:
+  port: 4141
+
+spring:
+  application:
+    name: server
+  cloud:
+    consul:
+      host: 127.0.0.1
+      port: 8500
+      discovery:
+#        healthCheckPath: /
+#        healthCheckInterval: 5s
+#        instance-id: website-1
+#        service-name: m-${spring.application.name}
+  main:
+    allow-bean-definition-overriding: true
+
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/m_website?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai
+    username: manage
+    password: manage
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+
+#redis
+  redis:
+    host: 127.0.0.1
+    port: 6379
+
+#  spring.data.elasticsearch.cluster-name=elasticsearch
+#  spring.data.elasticsearch.cluster-nodes=127.0.0.1:9300
+#  spring.data.elasticsearch.properties.transport.tcp.connect_timeout=120s
+#  spring.data.elasticsearch.local=false
+#  spring.data.elasticsearch.repositories.enabled=true
+
+
+#actuator
+management:
+    endpoints:
+      web:
+        exposure:
+          include: '*'
+      health:
+          show-details: always
+      shutdown:
+          enabled: true
+
+
+
+#mail
+mail:
+  port: 465
+  email_name: a@qq.com
+  email_password: a
+  mail_host: smtp.mxhichina.com
+  to_mail: abc@163.com
+
+  #阿里sms
+sms:
+  ali:
+    url: www.baidu.com
+    product: www.baidu.com
+    prefix: www.baidu.com
+    access_key_id: www.baidu.com
+    access_key_secret: www.baidu.com

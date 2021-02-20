@@ -1,0 +1,11 @@
+group 'consume'
+version "$projectVersion"
+
+jar {
+    enabled=true
+}
+
+dependencies {
+
+
+}

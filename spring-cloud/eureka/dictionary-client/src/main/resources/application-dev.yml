@@ -1,0 +1,14 @@
+server:
+  port: 3206
+
+spring:
+  application:
+    name: dictionary-back
+management:
+  context-path: /dictionary-back
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+

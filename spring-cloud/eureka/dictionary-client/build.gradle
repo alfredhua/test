@@ -1,0 +1,27 @@
+plugins {
+    id "java-library"
+}
+
+
+group 'dictionary-client'
+version "$projectVersion"
+
+repositories {
+    mavenLocal()
+    maven{
+        url 'http://maven.aliyun.com/nexus/content/groups/public'
+    }
+    mavenCentral()
+    maven { url 'https://jitpack.io' }
+    jcenter()
+}
+dependencies {
+
+    compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-config', version: '2.2.3.RELEASE'
+
+    compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-consul-discovery', version: '2.2.3.RELEASE'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-actuator', version: '2.3.1.RELEASE'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-actuator', version: '2.2.3.RELEASE'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '2.2.3.RELEASE'
+
+}

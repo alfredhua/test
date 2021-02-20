@@ -1,0 +1,22 @@
+server:
+  port: 3030
+
+spring:
+  application:
+    name: consume
+  main:
+    allow-bean-definition-overriding: true
+
+  cloud:
+    consul:
+      host: 127.0.0.1
+      port: 8500
+      discovery:
+        healthCheckPath: /
+        healthCheckInterval: 5s
+        instance-id: website-1
+        serviceName: m-${spring.application.name}
+
+
+service-url:
+  server: http://server
