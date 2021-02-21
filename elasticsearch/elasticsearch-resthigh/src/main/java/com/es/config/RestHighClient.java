@@ -25,7 +25,7 @@ public class RestHighClient {
     @Autowired
     RestHighLevelClient client;
 
-   public void getIndex(String index,String id ) throws Exception{
+   public void getIndex(String index,String id ) {
        GetRequest getRequest = new GetRequest( index,id);
        ActionListener<GetResponse> listener = new ActionListener<GetResponse>() {
            @Override
