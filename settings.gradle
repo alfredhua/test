@@ -47,3 +47,13 @@ include ':spring-cloud:config-client'
 project(':spring-cloud:config-client').projectDir = file('spring-cloud/config-client')
 include ':spring-cloud:hystrix-client'
 project(':spring-cloud:hystrix-client').projectDir = file('spring-cloud/hystrix-client')
+
+
+include ':seata:seata-api'
+project(':seata:seata-api').projectDir = file('seata/seata-api')
+include ':seata:seata-provide1'
+project(':seata:seata-provide1').projectDir = file('seata/seata-provide1')
+include ':seata:seata-provide2'
+project(':seata:seata-provide2').projectDir = file('seata/seata-provide2')
+include ':seata:seata-test'
+project(':seata:seata-test').projectDir = file('seata/seata-test')
