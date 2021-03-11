@@ -15,16 +15,11 @@ import java.time.LocalDateTime;
 @Setter
 public class Account implements Serializable {
 
-  /**
-   * id号
-   */
-  private Long id;
+  private Integer id;
 
-  /**
-   * 金额
-   */
-  private BigDecimal money;
+  private String user_id;
 
+  private Double amount;
   /**
    * 创建时间
    */

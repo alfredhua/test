@@ -8,16 +8,24 @@ version "$projectVersion"
 
 dependencies {
 
-    implementation("org.mybatis:mybatis:$mybatisVersion")
-    implementation("org.mybatis:mybatis-spring:$mybatisSpringVersion")
-    implementation("org.mybatis.spring.boot:mybatis-spring-boot-starter:$mybatisSpringBootStarterVersion")
-    implementation("org.springframework.boot:spring-boot-starter-jdbc:$springBootVersion")
-    implementation("mysql:mysql-connector-java:$mysqlConnectorVersion")
-    implementation("org.flywaydb:flyway-core:$flyWayVersion")
+//    implementation("org.mybatis:mybatis:$mybatisVersion")
+//    implementation("org.mybatis:mybatis-spring:$mybatisSpringVersion")
+//    implementation("org.mybatis.spring.boot:mybatis-spring-boot-starter:$mybatisSpringBootStarterVersion")
+//    implementation("org.springframework.boot:spring-boot-starter-jdbc:$springBootVersion")
+//    implementation("mysql:mysql-connector-java:$mysqlConnectorVersion")
+//    implementation("org.flywaydb:flyway-core:$flyWayVersion")
+//
+//    implementation ("org.apache.dubbo:dubbo-spring-boot-starter:$dubboSpringBootVersion")
+//    implementation ("org.springframework.boot:spring-boot-starter-web:$springBootVersion")
 
-    implementation ("org.apache.dubbo:dubbo-spring-boot-starter:$dubboSpringBootVersion")
-    implementation ("org.springframework.boot:spring-boot-starter-web:$springBootVersion")
-
+    api ("org.apache.curator:curator-framework:$curatorVersion"){
+        exclude group: 'org.apache.zookeeper', module: 'zookeeper'
+    }
+    api ("org.apache.curator:curator-recipes:$curatorVersion")
+    api ("org.apache.zookeeper:zookeeper:$zookeeperVersion"){
+        exclude group: 'org.slf4j', module: 'slf4j-log4j12'
+        exclude group: 'log4j', module: 'log4j'
+    }
 }
 
 

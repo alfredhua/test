@@ -3,7 +3,7 @@ plugins {
 }
 
 
-group 'seata-test'
+group 'seata-storage'
 version "$projectVersion"
 
 dependencies {
@@ -20,8 +20,6 @@ dependencies {
     implementation ("org.apache.dubbo:dubbo-spring-boot-starter:$dubboSpringBootVersion")
     implementation ("org.springframework.boot:spring-boot-starter-web:$springBootVersion")
 
-    implementation "org.springframework.boot:spring-boot-starter-test:$springBootVersion"
-    implementation 'junit:junit:4.12'
 }
 
 

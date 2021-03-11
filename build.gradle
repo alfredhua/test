@@ -30,7 +30,7 @@ subprojects{
 
         dubboSpringBootVersion="2.7.5"
         curatorVersion="4.0.1"
-        zookeeperVersion="3.4.1"
+        zookeeperVersion="3.6.0"
 
         lombokVersion="1.18.16"
 

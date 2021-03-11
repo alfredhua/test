@@ -8,6 +8,6 @@ import com.test.entity.Account;
  */
 public interface AccountService {
 
-    void updateAccount(Account account);
+    int decreaseAccount(Account account);
 
 }

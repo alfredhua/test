@@ -1,0 +1,26 @@
+version: "3"
+services:
+  seata-server:
+    container_name: seata-server
+    image: seataio/seata-server
+    hostname: seata-server
+    ports:
+      - "8091:8091"
+    environment:
+      - SEATA_PORT=8091
+      - STORE_MODE=file
+    networks:
+      - net
+      -
+  zookeeper:
+    image: 'zookeeper:3.6.2'
+    restart: always
+    privileged: true
+    container_name: zookeeper
+    ports:
+      - 2181:2181
+    networks:
+      - net
+networks:
+  net:
+    external: false
