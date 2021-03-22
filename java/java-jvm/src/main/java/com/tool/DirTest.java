@@ -13,7 +13,7 @@ public class DirTest {
 
 
     public static void main(String[] args) {
-        String path="/Users/hua/workspace/self/doc/docs/zh-cn/7.分布式";
+        String path="/Users/hua/workspace/self/doc/docs/zh-cn/10.工具";
         File file = new File(path);
 
         File[] files = file.listFiles();
@@ -24,7 +24,7 @@ public class DirTest {
                 List<TitleLink> result=new ArrayList<>();
                 for (String subDir:list) {
                     if (!subDir.equals("README.md")&&!subDir.equals("file") && !subDir.equals(".DS_Stohtml"))
-                    result.add(new TitleLink(subDir.substring(2,subDir.length()-3),"/zh-cn/docs/7.分布式/"+dir.getName()+"/"+subDir.substring(0,subDir.length()-2)+"html"));
+                    result.add(new TitleLink(subDir.substring(2,subDir.length()-3),"/zh-cn/docs/10.工具/"+dir.getName()+"/"+subDir.substring(0,subDir.length()-2)+"html"));
                 }
                 Collections.sort(result, new Comparator<TitleLink>() {
                     @Override
