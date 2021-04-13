@@ -61,3 +61,6 @@ include ':seata:seata-storage'
 project(':seata:seata-storage').projectDir = file('seata/seata-storage')
 include ':seata:seata-test'
 project(':seata:seata-test').projectDir = file('seata/seata-test')
+
+include ':kafka:kafka-java'
+project(':kafka:kafka-java').projectDir = file('kafka/kafka-java')
