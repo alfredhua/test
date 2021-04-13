@@ -1,5 +1,9 @@
 package com.current;
 
+import java.util.concurrent.Executors;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
+
 /**
  * Created by guozhenhua
  * date 2020/5/25.
@@ -9,6 +13,8 @@ public class ThreadTest {
     private boolean flag=true;
 
     public static void main(String[] args) throws InterruptedException {
+
+        Executors.newFixedThreadPool(10);
         ThreadTest app=new ThreadTest();
 
         Thread aaaaa = new Thread(() -> {

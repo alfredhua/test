@@ -23,8 +23,9 @@ public class LockTest {
 
         readWriteLock.writeLock().lock();
         readWriteLock.writeLock().unlock();
-
-
+        synchronized(LockTest.class){
+            System.out.println("--------");
+        }
 
     }
 }
