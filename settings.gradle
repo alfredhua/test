@@ -64,3 +64,6 @@ project(':seata:seata-test').projectDir = file('seata/seata-test')
 
 include ':kafka:kafka-java'
 project(':kafka:kafka-java').projectDir = file('kafka/kafka-java')
+
+include ':spark:spark-java'
+project(':spark:spark-java').projectDir = file('spark/spark-java')
