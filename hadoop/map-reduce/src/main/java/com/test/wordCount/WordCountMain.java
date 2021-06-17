@@ -1,4 +1,4 @@
-package com.map.test;
+package com.test.wordCount;
 
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.IntWritable;
