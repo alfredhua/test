@@ -70,3 +70,5 @@ include ':hadoop:hive'
 project(':hadoop:hive').projectDir = file('hadoop/hive')
 include ':hadoop:map-reduce'
 project(':hadoop:map-reduce').projectDir = file('hadoop/map-reduce')
+include ':hadoop:scala'
+project(':hadoop:scala').projectDir = file('hadoop/scala')
