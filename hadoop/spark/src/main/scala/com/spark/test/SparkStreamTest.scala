@@ -6,7 +6,7 @@ import org.apache.spark.streaming.{Seconds, StreamingContext}
 object SparkStreamTest {
 
     def  test(): Unit ={
-        var sparkConf=new SparkConf()
+        val sparkConf=new SparkConf()
         sparkConf.setAppName("SparkStreamTest").setMaster("local[2]")
         val ssc = new StreamingContext(sparkConf,Seconds(1))
 
