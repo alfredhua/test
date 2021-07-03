@@ -18,7 +18,7 @@ public class RestHighClientConfig {
     public RestHighLevelClient RestHighClientConfig(){
         RestHighLevelClient client = new RestHighLevelClient(
                 RestClient.builder(
-                        new HttpHost("192.168.0.107", 9200, "http")));
+                        new HttpHost("192.168.0.105", 9200, "http")));
         return client;
     }
 

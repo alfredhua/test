@@ -12,7 +12,7 @@ public class Consumer {
 
     public static void main(String[] args) {
         Properties props = new Properties();
-        props.setProperty("bootstrap.servers", "127.0.0.1:9092");
+        props.setProperty("bootstrap.servers", "kafka.alfredhua.com:9092");
         props.setProperty("group.id", "test");
         props.setProperty("enable.auto.commit", "true");
         props.setProperty("auto.commit.interval.ms", "1000");
