@@ -52,7 +52,6 @@ project(':spring-cloud:config-client').projectDir = file('spring-cloud/config-cl
 include ':spring-cloud:hystrix-client'
 project(':spring-cloud:hystrix-client').projectDir = file('spring-cloud/hystrix-client')
 
-
 include ':seata:seata-api'
 project(':seata:seata-api').projectDir = file('seata/seata-api')
 include ':seata:seata-account'
@@ -64,3 +63,12 @@ project(':seata:seata-test').projectDir = file('seata/seata-test')
 
 include ':kafka:kafka-java'
 project(':kafka:kafka-java').projectDir = file('kafka/kafka-java')
+
+include ':hadoop:spark'
+project(':hadoop:spark').projectDir = file('hadoop/spark')
+include ':hadoop:hive'
+project(':hadoop:hive').projectDir = file('hadoop/hive')
+include ':hadoop:map-reduce'
+project(':hadoop:map-reduce').projectDir = file('hadoop/map-reduce')
+include ':hadoop:scala'
+project(':hadoop:scala').projectDir = file('hadoop/scala')

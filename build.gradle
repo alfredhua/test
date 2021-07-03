@@ -18,6 +18,7 @@ subprojects{
 
     apply(plugin: "java-library")
     apply(plugin: 'maven-publish')
+    apply(plugin: 'scala')
 
     ext{
         projectVersion="1.0.0"
