@@ -33,8 +33,6 @@ object Func {
 
 
   def  twoOp(op:(Int,Int)=>Int,a:Int,b:Int):Int ={
-
-
     op(a,b)
   }
 
