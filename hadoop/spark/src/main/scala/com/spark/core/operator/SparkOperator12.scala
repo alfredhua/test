@@ -1,4 +1,4 @@
-package com.spark.operator
+package com.spark.core.operator
 
 import org.apache.spark.rdd.RDD
 import org.apache.spark.{SparkConf, SparkContext}

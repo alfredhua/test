@@ -1,14 +1,14 @@
-package com.spark.core
+package com.spark.core.demo
 
 import java.io.ObjectInputStream
 import java.net.ServerSocket
 
-object Executor{
+object Executor {
 
 
   def main(args: Array[String]): Unit = {
 
-    val server=new ServerSocket(9999)
+    val server = new ServerSocket(9999)
 
     println("server 服务器启动，等待接收数据")
 
@@ -19,11 +19,11 @@ object Executor{
     val objIn = new ObjectInputStream(in)
 
 
-    val task:SubTask = objIn.readObject().asInstanceOf[SubTask]
+    val task: SubTask = objIn.readObject().asInstanceOf[SubTask]
 
     val datas = task.compute()
 
-    println("计算结果为："+datas.toString())
+    println("计算结果为：" + datas.toString())
 
     objIn.close()
     socket.close()

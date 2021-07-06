@@ -1,4 +1,4 @@
-package com.spark.rdd.builder
+package com.spark.core.builder
 
 import org.apache.spark.{SparkConf, SparkContext}
 

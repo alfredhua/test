@@ -1,9 +1,9 @@
-package com.spark.operator
+package com.spark.core.operator
 
 import org.apache.spark.rdd.RDD
 import org.apache.spark.{SparkConf, SparkContext}
 
-object SparkOperator04 {
+object SparkOperator03 {
 
 
   def main(args: Array[String]): Unit = {
@@ -12,11 +12,11 @@ object SparkOperator04 {
     val sc=new SparkContext(conf)
     val rdd = sc.makeRDD(List(1,2,3,4),2)
 
-    val map = rdd.mapPartitions(item => {
-      List(item.max).iterator
-    })
 
-    map.collect().foreach(println)
+    val mapRDD:RDD[Int] = rdd.mapPartitions(item => {
+      item.map(_ * 2)
+    })
+    mapRDD.collect().foreach(println)
 
     sc.stop()
   }

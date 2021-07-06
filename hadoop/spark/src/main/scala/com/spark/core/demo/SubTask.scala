@@ -1,4 +1,4 @@
-package com.spark.core
+package com.spark.core.demo
 
 class SubTask extends Serializable {
 
