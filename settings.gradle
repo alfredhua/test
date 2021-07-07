@@ -72,6 +72,7 @@ include ':hadoop:map-reduce'
 project(':hadoop:map-reduce').projectDir = file('hadoop/map-reduce')
 include ':hadoop:scala'
 project(':hadoop:scala').projectDir = file('hadoop/scala')
-
 include ':hadoop:spark-frame'
 project(':hadoop:spark-frame').projectDir = file('hadoop/spark-frame')
+include ':hadoop:hbase'
+project(':hadoop:hbase').projectDir = file('hadoop/hbase')
