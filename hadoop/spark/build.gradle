@@ -11,6 +11,7 @@ dependencies {
     implementation group: 'org.apache.spark', name: 'spark-core_2.12', version: '3.1.2'
     implementation group: 'org.apache.spark', name: 'spark-sql_2.12', version: '3.1.2'
     implementation group: 'org.apache.spark', name: 'spark-streaming_2.12', version: '3.1.2'
+    implementation("mysql:mysql-connector-java:$mysqlConnectorVersion")
 
     compile "org.scala-lang:scala-library:2.12.1"
     compile "org.scala-lang:scala-compiler:2.12.1"
