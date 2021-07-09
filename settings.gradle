@@ -76,3 +76,6 @@ include ':hadoop:spark-frame'
 project(':hadoop:spark-frame').projectDir = file('hadoop/spark-frame')
 include ':hadoop:hbase'
 project(':hadoop:hbase').projectDir = file('hadoop/hbase')
+
+include ':hadoop:flink'
+project(':hadoop:flink').projectDir = file('hadoop/flink')
