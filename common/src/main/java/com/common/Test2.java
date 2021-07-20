@@ -11,7 +11,6 @@ public class Test2 {
 
     private Test2(){
     }
-
     public static  Test2 getInstance(){
         if (test2==null){
             synchronized(Test2.class){
