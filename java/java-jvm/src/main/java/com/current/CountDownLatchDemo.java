@@ -10,9 +10,9 @@ public class CountDownLatchDemo  extends Thread {
 
       new Thread(()->{
         try {
-          System.out.println("---------子线程"+Thread.currentThread().getName()+"正在执行");
           Thread.sleep(3000);
-          System.out.println("----over-------子线程"+Thread.currentThread().getName()+"执行完毕");
+          System.out.println("--------子线程"+Thread.currentThread().getName()+"正在执行");
+          System.out.println("---ver-------子程"+Thread.currentThread().getName()+"执行完毕");
         } catch (InterruptedException e) {
           e.printStackTrace();
         }
