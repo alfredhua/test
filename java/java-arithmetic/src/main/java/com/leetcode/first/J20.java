@@ -4,11 +4,11 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Stack;
 
-public class J15 {
+public class J20 {
     public static void main(String[] args) {
         String s="([()()])";
 //        System.out.println(s.substring(7,1));
-        boolean vaild = new J15().isVaild(s);
+        boolean vaild = new J20().isVaild(s);
         System.out.println(vaild);
 
     }
