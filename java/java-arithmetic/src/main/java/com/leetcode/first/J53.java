@@ -21,4 +21,14 @@ public class J53 {
         }
         return max;
     }
+
+
+    public int  maxSubArray2(int[] nums){
+        int prex=0,maxAns=nums[0];
+        for (int x : nums) {
+            prex=Math.max(prex+x,x);
+            maxAns =Math.max(maxAns,prex);
+        }
+        return maxAns;
+    }
 }
