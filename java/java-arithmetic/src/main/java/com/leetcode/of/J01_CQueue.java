@@ -5,12 +5,16 @@ import java.util.Stack;
 class CQueue {
 
     private Stack<Integer> enterStack;
+
     private Stack<Integer> exitStack;
+
     public CQueue() {
         enterStack=new Stack<>();
         exitStack=new Stack<>();
     }
+
     public void appendTail(int value) {
+
         if (exitStack.isEmpty()){
             exitStack.push(value);
         }else{
