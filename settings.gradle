@@ -79,5 +79,8 @@ project(':hadoop:hbase').projectDir = file('hadoop/hbase')
 
 include ':hadoop:flink'
 project(':hadoop:flink').projectDir = file('hadoop/flink')
+
 include 'mybatis'
+
+include 'jsf'
 
