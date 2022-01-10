@@ -46,6 +46,8 @@ public class AddTwoNumbers_2{
 
    public static void main(String[] args) {
        Solution solution = new AddTwoNumbers_2().new Solution();
+       solution.addTwoNumbers(new ListNode(2,new ListNode(4,new ListNode(3))),new ListNode(5,new ListNode(6,new ListNode(4))));
+       System.out.println("---------------");
    }
    
    //leetcode submit region begin(Prohibit modification and deletion)
@@ -61,11 +63,29 @@ public class AddTwoNumbers_2{
  */
 class Solution {
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-
-        while (l1.val!=0 && l2.val!=0){
-
+        ListNode result=new ListNode();
+        int c=0;
+        while (l1.getVal()!=null && l2.getVal()!=null){
+            int a= l1.getVal()==null?0:l1.getVal();
+            int b= l2.getVal()==null?0:l2.getVal();
+            int val=0;
+            if (a + b + c>=10){
+                val =(a+b+c)%10;
+                c=(a+b+c)/10;
+            }else{
+                val = a+b;
+                c=0;
+            }
+            if (l1.getNext()!=null){
+                l1=l1.getNext();
+            }
+            if (l1.getNext()!=null){
+                l2=l2.getNext();
+            }
+            result=result.next;
+            result.next=new ListNode(val);
         }
-        return null;
+        return result;
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)

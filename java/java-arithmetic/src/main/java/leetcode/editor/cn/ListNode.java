@@ -1,8 +1,23 @@
 package leetcode.editor.cn;
 
-public class ListNode {
-      int val;
-      ListNode next;
-      ListNode(int x) { val = x; }
+import lombok.Getter;
+import lombok.Setter;
 
-  }
+@Getter
+@Setter
+public class ListNode {
+      Integer val;
+      ListNode next;
+
+    public ListNode() {
+    }
+
+    public ListNode(Integer val) {
+        this.val = val;
+    }
+
+    public ListNode(Integer val, ListNode next) {
+        this.val = val;
+        this.next = next;
+    }
+}
