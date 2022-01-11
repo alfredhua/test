@@ -63,29 +63,30 @@ public class AddTwoNumbers_2{
  */
 class Solution {
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-        ListNode result=new ListNode();
-        int c=0;
-        while (l1.getVal()!=null && l2.getVal()!=null){
-            int a= l1.getVal()==null?0:l1.getVal();
-            int b= l2.getVal()==null?0:l2.getVal();
-            int val=0;
-            if (a + b + c>=10){
-                val =(a+b+c)%10;
-                c=(a+b+c)/10;
-            }else{
-                val = a+b;
-                c=0;
-            }
-            if (l1.getNext()!=null){
+        ListNode result=new ListNode(-1);
+        ListNode head=result;
+        short pre=0;
+        while (l1!=null || l2!=null){
+            int num=0;
+            if (l1!=null){
+                num=l1.getVal()+num;
                 l1=l1.getNext();
             }
-            if (l1.getNext()!=null){
+
+            if (l2!=null){
+                num = l2.getVal()+num;
                 l2=l2.getNext();
             }
+
+            if ( pre ==1 ){
+                num=num+1;
+            }
+            result.next=new ListNode(num%10);
             result=result.next;
-            result.next=new ListNode(val);
+            pre = num > 9 ?(short) 1 :0;
         }
-        return result;
+
+        return head.next;
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)
