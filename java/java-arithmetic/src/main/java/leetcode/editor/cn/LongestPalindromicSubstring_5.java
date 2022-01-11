@@ -48,39 +48,52 @@ public class LongestPalindromicSubstring_5{
 
    public static void main(String[] args) {
        Solution solution = new LongestPalindromicSubstring_5().new Solution();
-       String babad = solution.longestPalindrome("babad");
-       System.out.println(babad);
-
+//       String babad = solution.longestPalindrome("babad");
+//       System.out.println(babad);
+//
        String cbbd = solution.longestPalindrome("cbbd");
        System.out.println(cbbd);
+//
+//       String a = solution.longestPalindrome("a");
+//       System.out.println(a);
 
-       String a = solution.longestPalindrome("a");
-       System.out.println(a);
-
-       String ac = solution.longestPalindrome("ac");
-       System.out.println(ac);
-
-       String b = solution.longestPalindrome("aacabdkacaa"); //aca
-       System.out.println(b);
+//       String ac = solution.longestPalindrome("ac");
+//       System.out.println(ac);
+//
+//       String b = solution.longestPalindrome("aacabdkacaa"); //aca
+//       System.out.println(b);
    }
-   
+
    //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
-    public String longestPalindrome(String s) {
-        String result="";
-        for (int start=0;start<s.length();start++){
-            for (int end=s.length()-1;end>=start;end--){
-                if (s.charAt(start) != s.charAt(end)){
-                    continue;
-                }
-                if (s.substring(start,end+1).length() > result.length()) {
-                    result = s.substring(start, end+1);
-                }
-            }
-        }
-        return  result;
-    }
-}
+       public String longestPalindrome(String s) {
+           String result="";
+           if (s==null || s.length()==1){
+               return s;
+           }
+           for (int i=1;i<s.length()-1;i++){
+               int start=i-1;
+               int end =i+1;
+               while (start>0 && end<s.length()-1){
+                   if (s.charAt(start)== s.charAt(end)){
+                       String substring = s.substring(start, end+1);
+                       if (result.length() < substring.length()) {
+                           result = substring;
+                       }
+                       start--;
+                       end++;
+                   }else{
+                       break;
+                   }
+               }
+           }
+           if ("".equals(result)){
+               return s.substring(0,1);
+           }
+           return result;
+       }
+
+   }
 //leetcode submit region end(Prohibit modification and deletion)
 
    
