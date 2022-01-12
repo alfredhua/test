@@ -1,0 +1,99 @@
+### 解题思路
+
+【生哥刷题】【单片机工程师】
+----这里道题目用C语言来做的思路。
+
+### 双指针
+
+关键点：
+1：采用双指针的方式管理数组
+2：从两头开始遍历，直到取到适合的值为止。
+时间复杂度：O(n)
+空间复杂度：O(1)
+
+### 暴力（超时）
+
+关键点：
+1：两个下标重零开始索引
+时间复杂度：O(n(n-1))
+空间复杂度：O(1)
+
+### 点个赞收藏，我们一起变强，这里是只会C也要学算法的生哥
+
+### 代码
+
+* [-双指针]
+
+```c
+int maxArea(int* height, int heightSize)
+{
+    //暴力法
+    int indexLeft  = 0;
+    int indexRight = heightSize-1;
+    int temp = 0;
+    int sum  = 0;
+    int h    = 0;
+    int moveLeft = 0;
+    while(indexLeft < indexRight)
+    {
+        //取短的
+        if(height[indexLeft]<=  height[indexRight])
+        {
+            h = height[indexLeft];
+            moveLeft = 1;
+        }
+        else
+        {
+            h = height[indexRight];
+            moveLeft = 0;
+        }
+        temp = h *(indexRight - indexLeft);
+        if(sum < temp)
+        {
+            sum = temp;
+        }
+        if(moveLeft)
+            indexLeft++;
+        else
+            indexRight--;
+    }
+    return sum;
+}
+```
+
+* [-暴力(超时)]
+
+```c
+int maxArea(int* height, int heightSize)
+{
+    //暴力法
+    int indexLeft  = 0;
+    int indexRight = 0;
+    int temp = 0;
+    int sum  = 0;
+    int h     = 0;
+
+    for( ;indexLeft < heightSize; indexLeft++)
+    {
+        for(indexRight = indexLeft+1; indexRight < heightSize; indexRight++ )
+        {
+            //取短的
+            if(height[indexLeft]<=  height[indexRight])
+            {
+                h = height[indexLeft];
+            }
+            else
+            {
+                h = height[indexRight];
+            }
+            temp = h *(indexRight - indexLeft);
+            if(sum < temp)
+            {
+                sum = temp;
+            }
+        }
+    }
+    return sum;
+}
+```
+
