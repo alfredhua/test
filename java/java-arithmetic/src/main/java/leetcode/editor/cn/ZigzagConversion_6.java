@@ -66,12 +66,11 @@ public class ZigzagConversion_6{
        System.out.println(paypalishiring.equals("PAHNAPLSIIGYIR"));
        String pinalsigyahrpi = solution.convert("PAYPALISHIRING", 4);
        System.out.println(pinalsigyahrpi.equals("PINALSIGYAHRPI"));
-
-
    }
    
    //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
+
     public String convert(String s, int numRows) {
         if ( numRows < 2 ){
             return s;
