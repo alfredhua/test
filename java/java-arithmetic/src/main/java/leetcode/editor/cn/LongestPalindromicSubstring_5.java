@@ -68,28 +68,7 @@ public class LongestPalindromicSubstring_5{
 class Solution {
        public String longestPalindrome(String s) {
            String result="";
-           if (s==null || s.length()==1){
-               return s;
-           }
-           for (int i=1;i<s.length()-1;i++){
-               int start=i-1;
-               int end =i+1;
-               while (start>0 && end<s.length()-1){
-                   if (s.charAt(start)== s.charAt(end)){
-                       String substring = s.substring(start, end+1);
-                       if (result.length() < substring.length()) {
-                           result = substring;
-                       }
-                       start--;
-                       end++;
-                   }else{
-                       break;
-                   }
-               }
-           }
-           if ("".equals(result)){
-               return s.substring(0,1);
-           }
+
            return result;
        }
 
