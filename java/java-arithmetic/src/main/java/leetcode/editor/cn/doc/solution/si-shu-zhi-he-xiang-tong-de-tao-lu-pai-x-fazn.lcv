@@ -1,0 +1,56 @@
+### 代码
+
+* golang
+
+```golang
+func fourSum(nums []int, target int) [][]int {
+    // 四数之和， 双指针， 时间O(n^3), 空间O(1)
+	// a+b+c+d=target, c+d=target-a-b
+	if len(nums) < 4 {return nil}
+	// 排序数组
+	sort.Ints(nums)
+	ans := [][]int{}
+	length := len(nums)
+	// first到倒数第四个数为止
+	for first:=0;first<length-3;first++ {
+		// 避免重复，剪枝
+		if first > 0 && nums[first] == nums[first-1] {
+			continue
+		}
+		// second到倒数第三个数为止
+		for second:=first+1;second<length-2;second++ {
+			// 避免重复，剪枝
+			if second > first + 1 && nums[second] == nums[second-1] {
+				continue
+			}
+			// 双指针开始用到, 相当于头尾指针
+			third, four := second+1, length-1
+			twoSum := target - nums[first] - nums[second]
+			for third < four {
+				// 和偏小，third右移增大
+				if nums[third] + nums[four] < twoSum {
+					third++
+				// 和偏大，four左移减小
+				} else if nums[third] + nums[four] > twoSum {
+					four--
+				// 和等，除了加入结果集，也需要third++， four--
+				} else {
+					ans = append(ans, []int{nums[first], nums[second],nums[third], nums[four]})
+					// third, four去重
+					for third < four && nums[third+1] == nums[third] {
+						third++
+					}
+					for third < four && nums[four-1] == nums[four] {
+						four--
+					}
+					// 更新third, four
+					third++
+					four--
+				}
+			}
+		}
+	}
+	return ans
+}
+```
+

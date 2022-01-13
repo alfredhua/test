@@ -1,0 +1,79 @@
+# 思路
+
+这道题目是典型的回溯问题。再具体一点，它是典型的排列组合类问题，通常都需要使用回溯的思想去处理。
+
+如果对上面的话对你来说并不清晰，可以好好的思考研究一下什么是排列组合，什么是回溯算法这两个问题，尤其是后者，应该去看偏理论一点的知识（这时候就不应该闷头解题了）。当然，通过解题来促进思想的理解是可行的。
+
+了解思想并不难，回溯的具体编程技巧有哪些呢？
+1. 回退的动作通常使用**递归**实现
+2. 前进的动作通常伴随着某个 index 的增加
+3. 递归的方法通常需要 记录path
+
+两个注意事项
+1. 前进和后退的状态变化和恢复
+2. 寻找递归结束条件
+
+# 具体实现
+
+另外递归代码的特点是，结构通常非常同质化，我们甚至可以忽略具体场景直接套模版/看代码。
+
+具体到这道题目：
+
+* java
+
+```java
+public List<String> letterCombinations(String digits) {
+    List<String> res = new LinkedList<>();
+    if (digits.length() == 0)
+        return res;
+    String[] map = {" ", " ", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
+
+    backtracking(digits, 0, map, res, new StringBuilder());
+    return res;
+}
+
+private void backtracking(String digits, int i, String[] map, List<String> res, StringBuilder stringBuilder) {
+    if (i == digits.length()) {
+        res.add(stringBuilder.toString());
+        return;
+    }
+
+    int num = Character.getNumericValue(digits.charAt(i));
+    for (char c : map[num].toCharArray()) {
+        stringBuilder.append(c);
+        backtracking(digits, i + 1, map, res, stringBuilder);
+        stringBuilder.deleteCharAt(stringBuilder.length() - 1);
+    }
+}
+```
+
+最重要的是构想出递归结构 `backtracking(digits, index, map, res, stringBuilder());`
+- index 记录数字的位置，index + 1 实现推进
+- stringBuilder() 来保存path或者说中间结果
+
+digits、map、和res起到的是辅助作用，甚至可以定义为全局的不传入这些变量也问题不大。
+
+# 注意事项
+
+可以使用数组的地方，尽量不要用map。比如这道题其实有两种实现方式：
+
+* java
+
+```java
+Map<Character, String> phoneMap = new HashMap<Character, String>() {
+	{
+		put('2', "abc");
+		put('3', "def");
+		put('4', "ghi");
+		put('5', "jkl");
+		put('6', "mno");
+		put('7', "pqrs");
+		put('8', "tuv");
+		put('9', "wxyz");
+	}
+};
+
+String[] map = {" ", " ", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
+```
+
+另外关于直接使用 String+ 还是 StringBuilder、StringBuffer，我们需要知道 String 是immutable的，并不是适合此类场景，而StringBuilder 与 StringBuffer 几乎一致，尤其是接口，区别在于StringBuffer更多用于需要线程安全的场景，其他时候使用 StringBuilder 即可。

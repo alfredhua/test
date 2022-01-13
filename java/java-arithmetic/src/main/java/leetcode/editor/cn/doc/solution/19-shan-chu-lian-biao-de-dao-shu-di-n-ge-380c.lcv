@@ -1,0 +1,73 @@
+### 解题思路
+
+*栈*
+新建哑节点（dummy node）指向头节点，
+将所有节点入栈，然后出栈n个节点（要删掉的节点也出栈了），
+然后将栈顶peek（返回栈顶的元素但不移除它）的节点的next指向next.next来删除第n个节点，
+最后删除哑节点。
+
+*双指针*
+新建哑节点指向头节点
+新建first节点指向dummy哑节点，新建second节点指向head头节点，
+second节点先移动n个节点，此时first与second之间有n-1个节点，
+first和second同时后移直到second移到最后一个节点，此时first.next就是要删除的倒数第n个节点，
+最后删除哑节点。
+
+### 代码
+
+* java
+
+```java
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+class Solution {
+    public ListNode removeNthFromEnd(ListNode head, int n) {
+    //栈
+    ListNode dummy=new ListNode(0,head);
+    Deque<ListNode> stack=new LinkedList<ListNode>();
+    ListNode cur=dummy;
+    while(cur!=null){
+        stack.push(cur);
+        cur=cur.next;
+    }
+    for(int i=0;i<n;i++){
+        stack.pop();
+    }
+    ListNode prev=stack.peek();
+    prev.next=prev.next.next;
+    ListNode ans=dummy.next;
+    return ans;
+    }
+}
+
+
+
+
+class Solution {
+    public ListNode removeNthFromEnd(ListNode head, int n) {
+    //双指针
+    ListNode dummy=new ListNode(0,head);
+    ListNode first=dummy;
+    ListNode second=head;
+    for(int i=0;i<n;i++){
+        second=second.next;
+    }
+    while(second!=null){
+        first=first.next;
+        second=second.next;
+    }
+    first.next=first.next.next;
+    ListNode ans=dummy.next;
+    return ans;
+    }
+}
+```
+
