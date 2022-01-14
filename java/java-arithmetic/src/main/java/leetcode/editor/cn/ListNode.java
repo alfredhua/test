@@ -25,7 +25,7 @@ public class ListNode {
     }
 
 
-    public ListNode createListNode(int[] nodes){
+    public static ListNode createListNode(int[] nodes){
         ListNode head = new ListNode(-1);
         ListNode node = head;
         for (int i=0;i<nodes.length;i++){
