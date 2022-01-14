@@ -41,7 +41,6 @@ public class MergeTwoSortedLists_21{
 
    public static void main(String[] args) {
        Solution solution = new MergeTwoSortedLists_21().new Solution();
-
        ListNode listNode1=ListNode.createListNode(new int[]{1,2,3,4,5});
        ListNode listNode = ListNode.createListNode(new int[]{1, 2, 3, 4, 5});
        System.out.println(solution.mergeTwoLists(listNode1,listNode).printListNode());
