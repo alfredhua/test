@@ -40,6 +40,8 @@
 
 package leetcode.editor.cn;
 
+import lombok.val;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Queue;
@@ -57,13 +59,41 @@ public class LetterCombinationsOfAPhoneNumber_17{
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
 
-
+        String[] phone = {"","","abc","def","ghi","jkl","mno","pqrs","tuv","wxyz"};
+        List<String> list=new ArrayList<>();
         /**
          * 递归
          * @param digits
          * @return
          */
         public List<String> letterCombinations(String digits) {
+            list.clear();
+            if (digits.length()<1 || digits.length()>4){
+                return new ArrayList<>();
+            }
+            backLetter1("",digits,0);
+            return list;
+        }
+
+        public void backLetter1(String letter,String digits,int index){
+            if (index==digits.length()){
+                list.add(letter);
+                return;
+            }
+            String word = phone[Integer.parseInt(digits.substring(index,index+1))];
+            for (int i=0;i<word.length();i++){
+                char c = word.charAt(i);
+                backLetter1(letter+c,digits,index+1);
+            }
+        }
+
+
+        /**
+         * 递归
+         * @param digits
+         * @return
+         */
+        public List<String> letterCombinations2(String digits) {
             String[] phone = {"abc","def","ghi","jkl","mno","pqrs","tuv","wxyz"};
             if (digits.length()<1 || digits.length()>4){
                 return new ArrayList<>();
