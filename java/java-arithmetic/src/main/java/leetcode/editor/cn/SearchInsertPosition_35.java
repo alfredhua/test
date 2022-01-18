@@ -58,12 +58,29 @@ public class SearchInsertPosition_35{
 
    public static void main(String[] args) {
        Solution solution = new SearchInsertPosition_35().new Solution();
+       System.out.println(solution.searchInsert(new int[]{1,2,5,6},5));
+       System.out.println(solution.searchInsert(new int[]{1,2,5,6},7));
+       System.out.println(solution.searchInsert(new int[]{1,2,5,6},6));
+       System.out.println(solution.searchInsert(new int[]{1,2,5,6},2));
    }
    
    //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public int searchInsert(int[] nums, int target) {
-        return 0;
+        int left=0;
+        int right=nums.length-1;
+        while (left<=right){
+            int mid=left+(right-left)/2;
+            if (nums[mid]==target){
+                return mid;
+            }else if (nums[mid]>target){
+                //左边
+                right=mid-1;
+            }else {
+                left=mid+1;
+            }
+        }
+        return left;
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)
