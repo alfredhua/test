@@ -1,7 +1,7 @@
 //请你判断一个 9 x 9 的数独是否有效。只需要 根据以下规则 ，验证已经填入的数字是否有效即可。 
 //
 // 
-// 数字 1-9 在每一行只能出现一次。 
+// 数字 1-9 在每一行只能出现一次。
 // 数字 1-9 在每一列只能出现一次。 
 // 数字 1-9 在每一个以粗实线分隔的 3x3 宫内只能出现一次。（请参考示例图） 
 // 
@@ -65,16 +65,66 @@
   
 package leetcode.editor.cn;
 
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
+
 public class ValidSudoku_36{
 
    public static void main(String[] args) {
        Solution solution = new ValidSudoku_36().new Solution();
+        char[][] board=new char[][]{
+                {'5','3','.','.','7','.','.','.','.'},
+                {'6','.','.','1','9','5','.','.','.'},
+                {'.','9','8','.','.','.','.','6','.'},
+                {'8','.','.','.','6','.','.','.','3'},
+                {'4','.','.','8','.','3','.','.','1'},
+                {'7','.','.','.','2','.','.','.','6'},
+                {'.','6','.','.','.','.','2','8','.'},
+                {'.','.','.','4','1','9','.','.','5'},
+                {'.','.','.','.','8','.','.','7','9'}
+        };
+       System.out.println(solution.isValidSudoku(board));
    }
    
    //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
+
+// 数字 1-9 在每一行只能出现一次。
+// 数字 1-9 在每一列只能出现一次。
+// 数字 1-9 在每一个以粗实线分隔的 3x3 宫内只能出现一次。（请参考示例图）
+
     public boolean isValidSudoku(char[][] board) {
-        return false;
+        int n=board.length;
+        Map<Integer, Set<Integer>> columns=new HashMap<>();
+        Map<Integer, Set<Integer>> seq=new HashMap<>();
+        Map<Integer, Set<Integer>> area=new HashMap<>();
+        for (int i=0;i<n;i++){
+            columns.put(i,new HashSet<>());
+            seq.put(i,new HashSet<>());
+            area.put(i,new HashSet<>());
+        }
+
+        for (int i=0;i<n;i++){  //行
+            for (int j=0;j<n;j++) { //列
+                char value=board[i][j];
+                if ('.'==value){
+                    continue;
+                }
+                Integer intValue=Integer.parseInt(String.valueOf(board[i][j]));
+                int k= i % 3 * 3 + j / 3;
+                if (columns.get(i).contains(intValue) || seq.get(j).contains(intValue) || area.get(k).contains(intValue)){
+                    return false;
+                }else{
+                    columns.get(i).add(intValue);
+                    seq.get(i).add(intValue);
+                    area.get(k).add(intValue);
+                }
+
+            }
+        }
+        return true;
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)
