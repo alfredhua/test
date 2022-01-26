@@ -1,0 +1,33 @@
+### 代码
+
+* golang
+
+```golang
+func multiply(num1 string, num2 string) string {
+    // 数组存储乘积
+	// 字符串相乘
+	if num1 == "0" || num2 == "0" {return "0"}
+	// num1[i]*num2[j]必在数组的[i+j]或者[i+j+1]上
+	// 进位在i+j上，个位在i+j+1
+	arr := make([]int, len(num1)+len(num2))
+	for i:=len(num2)-1;i>=0;i-- {
+		n2 := int(num2[i]-'0')
+		for j:=len(num1)-1;j>=0;j-- {
+			n1 := int(num1[j]-'0')
+			sum := n1 * n2 + arr[i+j+1]
+			arr[i+j+1] = sum % 10
+			arr[i+j] += sum / 10
+		}
+	}
+	res := ""
+	for i:=len(arr)-1;i>=0;i-- {
+		if i == 0 && arr[i] == 0 {
+			break
+		} 
+        res = strconv.Itoa(arr[i]) + res
+		
+	}
+	return res
+}
+```
+

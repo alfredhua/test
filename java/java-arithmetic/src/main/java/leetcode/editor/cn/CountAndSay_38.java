@@ -71,6 +71,9 @@ public class CountAndSay_38{
    public static void main(String[] args) {
        Solution solution = new CountAndSay_38().new Solution();
        System.out.println(solution.countAndSay(4));
+       System.out.println(solution.countAndSay(3));
+       System.out.println(solution.countAndSay(2));
+       System.out.println(solution.countAndSay(1));
    }
    
    //leetcode submit region begin(Prohibit modification and deletion)
@@ -81,19 +84,18 @@ class Solution {
             return "1";
         }
         String s = countAndSay(n - 1);
-        int count=1;
-        char temp=s.charAt(0);
         StringBuffer result=new StringBuffer();
-        for (int i=1;i<s.length();i++){
-            if ( s.charAt(i) != temp ){
-                result.append(count).append(temp);
-                count=1;
+        //个数+数字
+        int b=0;
+        int p=0;
+        while (p<s.length()) {
+            if ( s.charAt(b) != s.charAt(p) ) {
+                result.append(p - b).append(s.charAt(b));
+                b = p;
             }
-            count++;
-            temp=s.charAt(i);
+            p++;
         }
-        result.append(count).append(temp);
-        // count 1
+        result.append(p-b).append(s.charAt(b));
         return result.toString();
     }
 
