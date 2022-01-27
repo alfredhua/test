@@ -46,7 +46,6 @@ public class JumpGameIi_45{
    //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public int jump(int[] nums) {
-
         return 0;
     }
 }

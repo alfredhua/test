@@ -6,6 +6,7 @@ import org.msgpack.annotation.MessagePackOrdinalEnum;
 public enum NewUserEnum {
 
 
+
     user_0("desc0","0","name0"),
     user_1("desc1","1","name1"),
     user_2("desc2","2","name2"),
