@@ -37,23 +37,39 @@ public class LexicographicalNumbers_386{
 
    public static void main(String[] args) {
        Solution solution = new LexicographicalNumbers_386().new Solution();
+//       System.out.println(solution.lexicalOrder(2));
+//       System.out.println(solution.lexicalOrder(10));
+       System.out.println(solution.lexicalOrder(25));
    }
-   
    //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public List<Integer> lexicalOrder(int n) {
+        ArrayList<Integer> list = new ArrayList<>();
+        if (n==0){
+            list.add(0);
+            return  list;
+        }
         // 遍历从1-9
         for (int i =1; i<10;i++){
-            if (i>n){
-                continue;
-            }
-
+            addLexList(i,n,list);
         }
-        return new ArrayList<>();
+        return list;
     }
 
-    public void addList(){
-
+    public void addLexList(int i,int n,List<Integer> list){
+        if (i>n){
+            return;
+        }
+        //1. 先乘以10 进行遍历，遍历到没有了即可
+        list.add(i);
+        addLexList(i*10,n,list);
+        //2. 再进行加1遍历,
+        for (int j=1;j<10;j++){
+            if (i+j>n){
+                return;
+            }
+            list.add(i+j);
+        }
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)
