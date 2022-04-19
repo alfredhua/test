@@ -1,0 +1,90 @@
+* []
+
+```Python3
+class Solution:
+    def lexicalOrder(self, n: int) -> List[int]:
+        def dfs(n, target):
+            if target > n:
+                return
+            res.append(target)
+            target *= 10
+            for i in range(0, 10):
+                dfs(n, target + i)
+        res = []
+        for i in range(1, 10):
+            dfs(n, i)
+        return res
+```
+
+* []
+
+```Java
+class Solution {
+    public List<Integer> lexicalOrder(int n) {
+        ArrayList<Integer> res = new ArrayList<>();
+        for (int i = 1; i < 10; i++) {
+            dfs(res, n, i);
+        }
+        return res;
+    }
+    private static void dfs(List<Integer> res, int n, int target) {
+        if (target > n) return;
+        res.add(target);
+        target *= 10;
+        for (int i = 0; i < 10; i++) {
+            dfs(res, n, target + i);
+        } 
+    }
+}
+```
+
+* []
+
+```C++
+class Solution {
+public:
+    vector<int> lexicalOrder(int n) {
+        vector<int> res;
+        for (int i = 1; i < 10; i++) {
+            dfs(res, i, n);
+        }
+        return res;
+    }
+    void dfs(vector<int>& res, int target, int n) {
+        if (target > n) {
+            return;
+        }
+        res.push_back(target);
+        target *= 10;
+        for (int i = 0; i < 10; i++) {
+            dfs(res, target + i, n);
+        }
+    }
+};
+```
+
+* []
+
+```C
+int loc;
+int* lexicalOrder(int n, int* returnSize) {
+    loc = 0;
+    int *res = (int *)malloc(sizeof(int) * n);
+    for (int i = 1; i < 10; i++) {
+        dfs(res, i, n);
+    }
+    *returnSize = n;
+    return res;
+}
+void dfs(int* res, int target, int n) {
+    if (target > n) {
+        return;
+    }
+    res[loc++] = target;
+    target *= 10;
+    for (int i = 0; i < 10; i++) {
+        dfs(res, target + i, n);
+    }
+}
+```
+

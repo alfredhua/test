@@ -43,32 +43,46 @@ public class LexicographicalNumbers_386{
    }
    //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
-    public List<Integer> lexicalOrder(int n) {
-        ArrayList<Integer> list = new ArrayList<>();
-        if (n==0){
-            list.add(0);
-            return  list;
-        }
-        // 遍历从1-9
-        for (int i =1; i<10;i++){
-            addLexList(i,n,list);
-        }
-        return list;
-    }
 
-    public void addLexList(int i,int n,List<Integer> list){
+//       public List<Integer> lexicalOrder(int n) {
+//           List<Integer> list=new ArrayList<>();
+//           int number = 1;
+//           for (int i=0;i<n;i++){
+//               list.add(number);
+//               if ( number * 10 <= n){
+//                   number=number * 10;
+//               }else{
+//                   while (number % 10 == 9 || number + 1 > n) {
+//                       number /= 10;
+//                   }
+//                   number++;
+//               }
+//           }
+//           return list;
+//       }
+
+       ArrayList<Integer> list = new ArrayList<>();
+       public List<Integer> lexicalOrder(int n) {
+           if (n==0){
+               list.add(0);
+               return  list;
+           }
+           // 遍历从1-9
+           for (int i =1; i<10;i++){
+               addLexList(i,n);
+           }
+           return list;
+       }
+
+    public void addLexList(int i,int n){
         if (i>n){
             return;
         }
         //1. 先乘以10 进行遍历，遍历到没有了即可
         list.add(i);
-        addLexList(i*10,n,list);
         //2. 再进行加1遍历,
-        for (int j=1;j<10;j++){
-            if (i+j>n){
-                return;
-            }
-            list.add(i+j);
+        for (int j=0;j<10;j++){
+            addLexList(i*10+j,n);
         }
     }
 }
