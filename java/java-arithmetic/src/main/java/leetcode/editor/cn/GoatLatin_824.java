@@ -55,9 +55,6 @@
 
 package leetcode.editor.cn;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class GoatLatin_824{
 
     public static void main(String[] args) {
