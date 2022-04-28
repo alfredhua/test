@@ -27,7 +27,7 @@ public class WorkCount {
    public static class MyFlatMapFunction implements FlatMapFunction<String, Tuple2<String,Integer>> {
 
         @Override
-        public void flatMap(String value, Collector<Tuple2<String, Integer>> out) throws Exception {
+        public void flatMap(String value, Collector<Tuple2<String, Integer>> out) {
             String[] words = value.split(" ");
 
             for (String word : words) {
