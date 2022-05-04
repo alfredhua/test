@@ -9,8 +9,8 @@ import java.util.List;
 @Getter
 @Setter
 public class ListNode {
-      Integer val;
-      ListNode next;
+    public Integer val;
+    public ListNode next;
 
     public ListNode() {
     }
