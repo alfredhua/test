@@ -42,6 +42,8 @@
   
 package leetcode.editor.cn;
 
+import leetcode.editor.helper.ListNode;
+
 public class AddTwoNumbers_2{
 
    public static void main(String[] args) {

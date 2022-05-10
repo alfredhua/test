@@ -1,4 +1,4 @@
-package leetcode.editor.cn;
+package leetcode.editor.helper;
 
 import lombok.Getter;
 import lombok.Setter;
