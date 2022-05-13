@@ -17,6 +17,8 @@ include ':zookeeper'
 project(':zookeeper').projectDir = file('zookeeper')
 include ':rabbitmq'
 project(':rabbitmq').projectDir = file('rabbitmq')
+include ':redis'
+project(':redis').projectDir = file('redis')
 
 include ':elasticsearch:elasticsearch-transport'
 project(':elasticsearch:elasticsearch-transport').projectDir = file('elasticsearch/elasticsearch-transport')
