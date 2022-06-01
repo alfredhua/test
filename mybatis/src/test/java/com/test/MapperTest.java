@@ -23,35 +23,33 @@ import java.util.List;
 @ContextConfiguration(classes = ApplicationRun.class)
 public class MapperTest {
 
-    @Autowired
-    UserMapper userMapper;
+	@Autowired
+	UserMapper userMapper;
 
-    @Test
-    public void test(){
+	@Test
+	public void test(){
+		List<User> users = userMapper.selectUser();
+		System.out.println(JSONArray.toJSONString(users));
+	}
 
-        List<User> users = userMapper.selectUser();
-        System.out.println(JSONArray.toJSONString(users));
+	@Autowired
+	SqlSession sqlSession;
 
-    }
-
-    @Autowired
-    SqlSession sqlSession;
-
-    //走Mybatis-Spring 中的SqlSessionTemplate 会反射Mybatis的SqlSession然后调用SelectList方法
-    @Test
-    public void test2(){
-        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
-        List<User> users = mapper.selectUser();
-    }
+	//走Mybatis-Spring 中的SqlSessionTemplate 会反射Mybatis的SqlSession然后调用SelectList方法
+	@Test
+	public void test2(){
+		UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+		List<User> users = mapper.selectUser();
+	}
 
 
-    @Autowired
-    SqlSessionFactory sqlSessionFactory;
+	@Autowired
+	SqlSessionFactory sqlSessionFactory;
 
-    @Test
-    public void test3(){
-        SqlSession sqlSession = sqlSessionFactory.openSession();
-        UserMapper mapper =sqlSession.getMapper(UserMapper.class);
-        List<User> users = mapper.selectUser();
-    }
+	@Test
+	public void test3(){
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		UserMapper mapper =sqlSession.getMapper(UserMapper.class);
+		List<User> users = mapper.selectUser();
+	}
 }
