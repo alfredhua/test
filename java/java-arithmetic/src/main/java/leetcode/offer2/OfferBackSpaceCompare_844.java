@@ -11,7 +11,7 @@ public class OfferBackSpaceCompare_844 {
         return convert(s).equals(convert(t));
     }
     private String convert(String s){
-        StringBuffer sb=new StringBuffer();
+        StringBuilder sb=new StringBuilder();
         char[] chars = s.toCharArray();
         int size =0;
         for (int i =chars.length-1; i >=0 ;i--){
