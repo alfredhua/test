@@ -3,16 +3,14 @@ package leetcode.offer2;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class OfferPermuteUnique_47 {
     public static void main(String[] args) {
         List<List<Integer>> lists = new OfferPermuteUnique_47().permuteUnique(new int[]{1, 2, 3,2});
-        for (int i=0;i<lists.size();i++){
-            List<Integer> integers = lists.get(i);
-            for (int j=0;j<integers.size();j++){
-                System.out.print(integers.get(j)+",");
-            }
-            System.out.println();
+        for (List<Integer> integers : lists) {
+            String collect = integers.stream().map(String::valueOf).collect(Collectors.joining(","));
+            System.out.println(collect);
         }
     }
 
