@@ -40,7 +40,7 @@
   
 package leetcode.editor.cn;
 
-import leetcode.editor.helper.TreeNode;
+import leetcode.helper.TreeNode;
 
 import java.util.ArrayList;
 import java.util.List;

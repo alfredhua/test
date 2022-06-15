@@ -1,6 +1,6 @@
 package leetcode.offer;
 
-import leetcode.editor.helper.ListNode;
+import leetcode.helper.ListNode;
 
 public class OfferMid_876 {
 

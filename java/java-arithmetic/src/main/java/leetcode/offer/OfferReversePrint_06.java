@@ -1,6 +1,6 @@
 package leetcode.offer;
 
-import leetcode.editor.helper.ListNode;
+import leetcode.helper.ListNode;
 
 import java.util.ArrayList;
 import java.util.List;

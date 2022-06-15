@@ -1,6 +1,6 @@
 package leetcode.offer;
 
-import leetcode.editor.helper.Node;
+import leetcode.helper.Node;
 
 import java.util.LinkedList;
 import java.util.Queue;

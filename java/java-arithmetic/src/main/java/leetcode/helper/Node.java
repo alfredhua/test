@@ -1,5 +1,8 @@
-package leetcode.editor.helper;
+package leetcode.helper;
 
+/**
+ * @author guozhenhua7
+ */
 public class Node {
     public int val;
     public Node left;

@@ -1,4 +1,4 @@
-package leetcode.editor.helper;
+package leetcode.helper;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -6,6 +6,9 @@ import lombok.Setter;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @author guozhenhua7
+ */
 @Getter
 @Setter
 public class ListNode {

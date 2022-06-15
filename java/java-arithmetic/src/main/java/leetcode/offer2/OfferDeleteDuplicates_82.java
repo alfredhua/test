@@ -1,6 +1,6 @@
 package leetcode.offer2;
 
-import leetcode.editor.helper.ListNode;
+import leetcode.helper.ListNode;
 
 public class OfferDeleteDuplicates_82 {
     public static void main(String[] args) {

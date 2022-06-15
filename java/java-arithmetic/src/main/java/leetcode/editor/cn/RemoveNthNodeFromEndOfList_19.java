@@ -42,7 +42,7 @@
   
 package leetcode.editor.cn;
 
-import leetcode.editor.helper.ListNode;
+import leetcode.helper.ListNode;
 
 public class RemoveNthNodeFromEndOfList_19{
 

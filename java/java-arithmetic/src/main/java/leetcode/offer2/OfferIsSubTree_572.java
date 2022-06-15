@@ -1,6 +1,6 @@
 package leetcode.offer2;
 
-import leetcode.editor.helper.TreeNode;
+import leetcode.helper.TreeNode;
 
 public class OfferIsSubTree_572 {
     public static void main(String[] args) {
