@@ -39,8 +39,8 @@ public class ArrayUtils {
             return;
         }
         System.out.println("执行结果错误");
-        System.out.println("排序后："+Arrays.toString(arr));
-        System.out.println("Arrays排序后："+Arrays.toString(sortArr));
+        System.out.println("排序后："+Arrays.toString(sortArr));
+        System.out.println("正确排序结果："+Arrays.toString(arr));
     }
 
 }

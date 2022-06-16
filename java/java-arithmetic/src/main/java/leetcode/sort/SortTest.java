@@ -11,7 +11,24 @@ import java.util.Arrays;
 public class SortTest {
     public static void main(String[] args) {
         int[] result = ArrayUtils.generateArray(1);
-        ArrayUtils.compare(result,SortTest.inset(Arrays.copyOf(result, result.length)));
+//        ArrayUtils.compare(result,SortTest.inset(Arrays.copyOf(result, result.length)));
+        ArrayUtils.compare(result,SortTest.mergeSort(Arrays.copyOf(result, result.length)));
+    }
+
+    public static int[] mergeSort(int[] arr){
+        if (arr.length<2){
+            return arr;
+        }
+        int mid = arr.length/2;
+        int[] a = Arrays.copyOfRange(arr, 0, mid);
+        int[] b = Arrays.copyOfRange(arr, mid, arr.length);
+        int[] left = mergeSort(a);
+        int[] right = mergeSort(b);
+        return merge(left,right);
+    }
+    private static int[] merge(int[] left,int[] right){
+        int[] result = new int[left.length+right.length];
+        return result;
     }
 
     /**
