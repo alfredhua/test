@@ -3,7 +3,6 @@ package leetcode.sort;
 import leetcode.helper.ArrayUtils;
 
 import java.util.Arrays;
-import java.util.List;
 
 /**
  * @author guozhenhua
@@ -12,26 +11,13 @@ import java.util.List;
 public class SortTest {
     public static void main(String[] args) {
         int[] result = ArrayUtils.generateArray(1);
-        int[] result2 = Arrays.copyOf(result, result.length);
-        System.out.println("排序前："+Arrays.toString(result));
-        SortTest sortTest = new SortTest();
-        //sortTest.bubble(result);
-        //sortTest.select(result);
-        sortTest.inset(result);
-        Arrays.sort(result2);
-        if (Arrays.toString(result).equals(Arrays.toString(result2))){
-            System.out.println("执行结果相同");
-            System.out.println("排序后："+Arrays.toString(result));
-            return;
-        }
-        System.out.println("排序后："+Arrays.toString(result));
-        System.out.println("Arrays排序后："+Arrays.toString(result2));
+        ArrayUtils.compare(result,SortTest.inset(Arrays.copyOf(result, result.length)));
     }
 
     /**
      * 插入排序
      */
-    public void inset(int[] arr){
+    public static int[] inset(int[] arr){
         int n = arr.length;
         for (int i = 1 ;i<n;i++){
             int temp = arr[i];
@@ -45,6 +31,7 @@ public class SortTest {
             }
             arr[i] = temp;
         }
+        return arr;
     }
 
     /**

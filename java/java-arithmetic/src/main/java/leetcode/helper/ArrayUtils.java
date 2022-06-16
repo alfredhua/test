@@ -30,4 +30,17 @@ public class ArrayUtils {
         return result;
     }
 
+    public static void compare(int[] arr,int[] sortArr){
+        System.out.println("排序前："+Arrays.toString(arr));
+        Arrays.sort(arr);
+        if (Arrays.toString(arr).equals(Arrays.toString(sortArr))){
+            System.out.println("执行结果相同");
+            System.out.println("排序后："+Arrays.toString(sortArr));
+            return;
+        }
+        System.out.println("执行结果错误");
+        System.out.println("排序后："+Arrays.toString(arr));
+        System.out.println("Arrays排序后："+Arrays.toString(sortArr));
+    }
+
 }
