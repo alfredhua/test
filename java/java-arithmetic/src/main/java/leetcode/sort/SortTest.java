@@ -11,23 +11,83 @@ import java.util.Arrays;
 public class SortTest {
     public static void main(String[] args) {
         int[] result = ArrayUtils.generateArray(1);
-//        ArrayUtils.compare(result,SortTest.inset(Arrays.copyOf(result, result.length)));
-        ArrayUtils.compare(result,SortTest.mergeSort(Arrays.copyOf(result, result.length)));
+//        ArrayUtils.compare(result,SortTest.mergeSort(Arrays.copyOf(result, result.length)));
+        ArrayUtils.compare(result,SortTest.quickSort(Arrays.copyOf(result, result.length)));
     }
 
+    /**
+     * 快排,每次选择最后一个数为基数，小于该数的在前面,大于的放在后面
+     * @param arr
+     * @return
+     */
+    public static int[] quickSort(int[] arr){
+        if (arr.length<2){
+            return arr;
+        }
+        quickSort2(arr,0,arr.length-1);
+        return arr;
+    }
+
+    public static void quickSort2(int[] arr,int left,int right){
+        if (left<right){
+            int partition = partition(arr, left, right);
+            quickSort2(arr,left,partition-1);
+            quickSort2(arr,partition+1,right);
+        }
+    }
+
+    /**
+     * 找基准位置，比该数大的放在前面，比该数小的放在后面，该数放在中间
+     * @param arr
+     * @param left
+     * @param right
+     * @return
+     */
+    public static int partition(int[] arr, int left, int right){
+        int index = left + 1;
+        for (int i = index; i <= right; i++) {
+            if (arr[i] < arr[left]) {
+                swap(arr, i, index);
+                index++;
+            }
+        }
+        swap(arr, left, index - 1);
+        return index - 1;
+    }
+
+    /**
+     * 归并排序
+     * @param arr
+     * @return
+     */
     public static int[] mergeSort(int[] arr){
         if (arr.length<2){
             return arr;
         }
         int mid = arr.length/2;
-        int[] a = Arrays.copyOfRange(arr, 0, mid);
-        int[] b = Arrays.copyOfRange(arr, mid, arr.length);
-        int[] left = mergeSort(a);
-        int[] right = mergeSort(b);
+        int[] leftArr = Arrays.copyOfRange(arr, 0, mid);
+        int[] rightArr = Arrays.copyOfRange(arr, mid, arr.length);
+        int[] left = mergeSort(leftArr);
+        int[] right = mergeSort(rightArr);
         return merge(left,right);
     }
-    private static int[] merge(int[] left,int[] right){
+
+    public static int[] merge(int[] left,int[] right){
         int[] result = new int[left.length+right.length];
+        int i = 0, j = 0,k=0;
+        while (i<left.length && j<right.length){
+            result[k++] = left[i]<right[j] ? left[i++] : right[j++];
+        }
+        if (i == left.length){
+            while (j<right.length){
+                result[k++] = right[j++];
+            }
+        }
+        if (j == right.length){
+            while (i<left.length){
+                result[k++] = left[i++];
+            }
+        }
         return result;
     }
 
@@ -87,7 +147,7 @@ public class SortTest {
 
     }
 
-    private void swap(int[] arr, int i , int j){
+    private static void swap(int[] arr, int i , int j){
         int temp = arr[i];
         arr[i] = arr[j];
         arr[j] = temp;
