@@ -12,7 +12,7 @@ import java.util.Deque;
 public class CodeTop_1_206 {
     public static void main(String[] args) {
         ListNode listNode = ListNode.createListNode(new int[]{1, 2, 3, 4, 5, 6});
-        System.out.println(new CodeTop_1_206().reverseList(listNode).printListNode());
+        System.out.println(new CodeTop_1_206().reverseList2(listNode).printListNode());
     }
 
 
@@ -56,7 +56,7 @@ public class CodeTop_1_206 {
             return head;
         }
         ListNode newHead = reverseList2(head.next);
-        head.next.next = head.next;
+        head.next.next = head;
         head.next = null;
         return newHead;
     }
