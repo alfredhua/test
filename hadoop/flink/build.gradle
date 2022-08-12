@@ -1,5 +1,7 @@
 plugins {
     id "java-library"
+//    id 'maven-publish'
+    id 'org.springframework.boot' version '2.4.1'
 }
 
 
@@ -12,10 +14,10 @@ dependencies {
     implementation group: 'org.apache.flink', name: 'flink-streaming-java_2.12', version: '1.13.1'
     implementation group: 'org.apache.flink', name: 'flink-clients_2.12', version: '1.13.1'
     implementation 'org.apache.flink:flink-connector-jdbc_2.12:1.13.1'
+    //数据源
+    implementation group: 'org.apache.flink', name: 'flink-walkthrough-common_2.12', version: '1.13.1'
 }
 
-jar {
-    manifest {
-        attributes('Main-Class': 'com.spark.test.JavaTest')
-    }
+bootJar {
+    mainClassName = 'com.flink.fraud.FraudDetectionJob'
 }
