@@ -52,6 +52,7 @@ public class SolveTheEquation_640{
 class Solution {
     public String solveEquation(String equation) {
 
+        return "";
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)

@@ -22,9 +22,58 @@ public class CodeTop_4_215 {
 
     public static void main(String[] args) {
         int[] a=new int[]{3, 2, 3, 1, 6, 6, 5, 5, 4};
-        int kthLargest = new CodeTop_4_215().findKthLargest(a, 4);
+        int kthLargest = new CodeTop_4_215().findKthLargest2(a, 4);
         System.out.println(kthLargest);
     }
+
+
+    private int findKthLargest2(int[] nums,int k){
+        if (nums.length<2 && k == 1 ){
+            return nums[0];
+        }
+        return quickSort2(nums,0,nums.length-1,k);
+    }
+    // 升序，正向第 k个,0,1,2,3,4,5
+    private int quickSort2(int[] nums, int left, int right , int k){
+        int res = nums.length -k;
+        //1.找的基准位置
+        int index = getPartition2(nums,left,right);
+        if ( index  == res){
+            return nums[res];
+        }
+        // 左边进行快排，右边进行快排。
+        if ( res > index){
+            //右边快排
+            return quickSort2(nums,index+1,right,k);
+        }
+        //左边快排
+        return quickSort2(nums,left,index-1,k);
+
+    }
+
+    /**
+     * 获取基准位置,左边的数 都是比基准小，右边的数都比基准大
+     * @param arr
+     * @param left
+     * @param right
+     * @return
+     */
+    private int getPartition2(int[] arr, int left, int right){
+        //最左边的数为基数
+        int index = left+1;
+        for (int i=left+1;i<=right;i++){
+            if (arr[i] < arr[left]) {
+                swap(arr, i, index);
+                index++;
+            }
+        }
+        swap(arr,left,index-1);
+        return index-1;
+    }
+
+
+
+
 
     public int findKthLargest(int[] nums, int k) {
         if (nums.length<2 && k==1){
@@ -52,7 +101,6 @@ public class CodeTop_4_215 {
 
     /**
      * 找到一个基准位置，比该数小的放在前面，比该数大的放在后面
-     * @param nums
      * @return
      */
     public int getPartition(int[] arr,int left,int right){
