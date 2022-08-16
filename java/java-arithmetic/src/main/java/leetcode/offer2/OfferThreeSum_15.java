@@ -6,7 +6,6 @@ import java.util.List;
 
 public class OfferThreeSum_15 {
     public static void main(String[] args) {
-
     }
 
     public static List<List<Integer>> threeSum(int[] nums) {
