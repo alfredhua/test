@@ -62,24 +62,57 @@ public class LongestPalindromicSubstring_5{
 //       System.out.println(solution.isPalindrom("bb"));
 //       System.out.println(solution.isPalindrom("abba"));
 //       System.out.println(solution.isPalindrom("a"));
-       String babad = solution.longestPalindrome("babad");
+       String babad = solution.longestPalindrome2("babad");
        System.out.println(babad);
 
-       String cbbd = solution.longestPalindrome("cbbd");
+       String cbbd = solution.longestPalindrome2("cbbd");
        System.out.println(cbbd);
 
-       String a = solution.longestPalindrome("a");
+       String a = solution.longestPalindrome2("a");
        System.out.println(a);
 
-       String ac = solution.longestPalindrome("ac");
+       String ac = solution.longestPalindrome2("ac");
        System.out.println(ac);
 
-       String b = solution.longestPalindrome("aacabdkacaa"); //aca
+       String b = solution.longestPalindrome2("aacabdkacaa"); //aca
        System.out.println(b);
    }
 
    //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
+
+       public String longestPalindrome2(String s) {
+           char[] chars = s.toCharArray();
+           int len = s.length();
+           boolean[][] isPa= new boolean[s.length()][s.length()];
+           for (int i =0;i<isPa.length;i++){
+               isPa[i][i] = true;
+           }
+           int begin=0,maxLen=0;
+           // i ---- j  是否是回文
+           for (int l =2;l<=s.length();l++){
+               for (int i =0; i<s.length();i++){
+                   int j = i+l -1; // 右边界
+                   if (j>=len){
+                       break;
+                   }
+                   if (chars[i]!=chars[j]){
+                       isPa[i][j] = false;
+                   }else {
+                       if (j-i<3){
+                           isPa[i][j] = true;
+                       }else {
+                           isPa[i][j]= isPa[i+1][j-1];
+                       }
+                   }
+                   if (isPa[i][j] && j - i + 1 > maxLen) {
+                       maxLen = j - i + 1;
+                       begin = i;
+                   }
+               }
+           }
+           return s.substring(begin, begin + maxLen);
+       }
 
 
        /**
