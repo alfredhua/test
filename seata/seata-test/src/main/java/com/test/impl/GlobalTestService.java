@@ -10,6 +10,7 @@ import io.seata.core.context.RootContext;
 import io.seata.spring.annotation.GlobalTransactional;
 import org.apache.dubbo.config.annotation.Reference;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 @Component
 public class GlobalTestService {
@@ -24,6 +25,7 @@ public class GlobalTestService {
 
 
 
+    @Transactional
     @GlobalTransactional(timeoutMills = 300000, name = "dubbo-gts-seata-example")
     public void testGlobalTransactional(Order order) {
         //扣减用户账户
