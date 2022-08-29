@@ -11,7 +11,7 @@ public class CodeTop_11_102 {
 
     public static void main(String[] args) {
         List<List<Integer>> lists = new CodeTop_11_102().levelOrder(new TreeNode(3, new TreeNode(9), new TreeNode(20, new TreeNode(15), new TreeNode(7))));
-        System.out.println("-------------"+lists.toArray());
+        System.out.println("-------------"+lists.toString());
     }
 
     public List<List<Integer>> levelOrder(TreeNode root) {
@@ -22,7 +22,7 @@ public class CodeTop_11_102 {
         Queue<TreeNode> queue= new LinkedList<>();
         queue.offer(root);
         while (!queue.isEmpty()){
-            List<Integer> level = new ArrayList<Integer>();
+            List<Integer> level = new ArrayList<>();
             int currentLevelSize = queue.size();
             for (int i =0;i<currentLevelSize;i++){
                 TreeNode node = queue.poll();
