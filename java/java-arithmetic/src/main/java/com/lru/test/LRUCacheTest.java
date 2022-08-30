@@ -62,7 +62,9 @@ public class LRUCacheTest {
      * @param key
      */
     public void remove(String key){
-
+        LinkNode node=hashMap.get(key);
+        removeNode(node);
+        hashMap.remove(key);
     }
 
     private void refreshNode(LinkNode node){
