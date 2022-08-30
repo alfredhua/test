@@ -9,6 +9,8 @@ import lombok.Setter;
 @Getter
 @Setter
 public class LinkNode {
+
+    private String key;
     public int value;
     public LinkNode pre;
     public LinkNode next;
