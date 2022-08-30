@@ -1,7 +1,6 @@
 package com.lru.test;
 
 import leetcode.helper.LinkNode;
-import leetcode.helper.ListNode;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -11,6 +10,21 @@ import java.util.Map;
  * 这是基于时间局部性原理的一个假设。LRU算法主要用于缓存算法，在节省资源的情况下提高数据访问效率。
  */
 public class LRUCacheTest {
+
+
+    public static void main(String[] args) {
+        LRUCacheTest lruCache = new LRUCacheTest(3);
+        lruCache.put("001",1);
+        lruCache.put("002",2);
+        lruCache.put("003",3);
+        lruCache.put("004",4);
+        lruCache.put("005",5);
+        lruCache.get("002");
+        lruCache.put("004",2);
+        lruCache.put("006",6);
+        System.out.println(lruCache.get("001"));
+        System.out.println(lruCache.get("006"));
+    }
 
     private LinkNode head;
 
@@ -54,6 +68,17 @@ public class LRUCacheTest {
             LinkNode node = new LinkNode(value);
             addNode(node);
             hashMap.put(key,node);
+        }
+    }
+
+    public LinkNode get(String key){
+        LinkNode linkNode = hashMap.get(key);
+        if (linkNode==null){
+            return null;
+        }else {
+            //刷新节点
+            refreshNode(linkNode);
+            return linkNode;
         }
     }
 
