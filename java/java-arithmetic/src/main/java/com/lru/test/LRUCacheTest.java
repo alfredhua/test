@@ -14,16 +14,18 @@ public class LRUCacheTest {
 
     public static void main(String[] args) {
         LRUCacheTest lruCache = new LRUCacheTest(3);
-        lruCache.put("001",1);
-        lruCache.put("002",2);
-        lruCache.put("003",3);
-        lruCache.put("004",4);
-        lruCache.put("005",5);
-        lruCache.get("002");
-        lruCache.put("004",2);
-        lruCache.put("006",6);
-        System.out.println(lruCache.get("001"));
-        System.out.println(lruCache.get("006"));
+        lruCache.put("1",1);
+        lruCache.put("2",2);
+        lruCache.put("3",3);
+        lruCache.put("4",4);
+        lruCache.put("5",5);
+        lruCache.get("2");
+        lruCache.put("4",4);
+        lruCache.put("6",6);
+        System.out.println(lruCache.head.printListNode());
+        System.out.println(lruCache.hashMap.toString());
+//        System.out.println(lruCache.get("1"));
+//        System.out.println(lruCache.get("6"));
     }
 
     private LinkNode head;
@@ -40,8 +42,8 @@ public class LRUCacheTest {
     public LRUCacheTest(int limit) {
         this.limit = limit;
         hashMap = new HashMap<>();
-        head = new LinkNode(0);
-        end = new LinkNode(0);
+        head = new LinkNode("0",0);
+        end = new LinkNode("0",0);
         head.next = end;
         end.pre = head;
     }
@@ -54,20 +56,20 @@ public class LRUCacheTest {
     public void put(String key,Integer value) {
         LinkNode linkNode = hashMap.get(key);
         if (linkNode!=null){
+            //刷新当前节点
+            refreshNode(linkNode);
+        }else{
             //如果超过了格式现在
-            if (hashMap.size()>limit){
+            if (hashMap.size()>=limit){
                 //删除调最后的节点
-                hashMap.remove(key);
+                hashMap.remove(end.pre.getKey());
                 removeNode(end.pre);
             }else{
-                //刷新当前节点
-                refreshNode(linkNode);
+                //没有节点，则直接添加
+                LinkNode node = new LinkNode(key,value);
+                addNode(node);
+                hashMap.put(key,node);
             }
-        }else{
-            //没有节点，则直接添加
-            LinkNode node = new LinkNode(value);
-            addNode(node);
-            hashMap.put(key,node);
         }
     }
 
