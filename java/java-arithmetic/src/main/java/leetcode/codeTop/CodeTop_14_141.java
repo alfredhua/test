@@ -8,7 +8,7 @@ import java.util.Set;
 public class CodeTop_14_141 {
 
     public boolean hasCycle(ListNode head) {
-        Set<ListNode> seen = new HashSet<ListNode>();
+        Set<ListNode> seen = new HashSet<>();
         while (head != null) {
             if (!seen.add(head)) {
                 return true;
