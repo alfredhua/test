@@ -14,6 +14,15 @@ public class CodeTop_11_102 {
         System.out.println("-------------"+lists.toString());
     }
 
+    public void dfs(TreeNode root){
+        if (root==null){
+            return;
+        }
+        System.out.println(root.val);
+        dfs(root.left);
+        dfs(root.right);
+    }
+
     public List<List<Integer>> levelOrder(TreeNode root) {
         List<List<Integer>> ret = new ArrayList<>();
         if (root == null) {
