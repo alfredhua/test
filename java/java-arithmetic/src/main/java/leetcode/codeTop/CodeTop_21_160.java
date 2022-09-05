@@ -5,13 +5,13 @@ import leetcode.helper.ListNode;
 import java.util.HashSet;
 import java.util.Set;
 
-public class CodeTop_20_160 {
+public class CodeTop_21_160 {
 
     public static void main(String[] args) {
 
         ListNode listNode1 = ListNode.createListNode(new int[]{1, 2, 3, 4, 5, 6, 7, 8});
         ListNode listNode2 = ListNode.createListNode(new int[]{9,10,11,12, 6, 7, 8});
-        ListNode intersectionNode1 = new CodeTop_20_160().getIntersectionNode1(listNode1, listNode2);
+        ListNode intersectionNode1 = new CodeTop_21_160().getIntersectionNode1(listNode1, listNode2);
         System.out.println(intersectionNode1.val);
 
     }
