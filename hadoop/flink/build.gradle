@@ -8,14 +8,28 @@ plugins {
 group 'hbase'
 version "$projectVersion"
 
+ext{
+    scala_binary_version="2.12"
+    flink_version="1.13.1"
+}
+
 dependencies {
 
-    implementation group: 'org.apache.flink', name: 'flink-java', version: '1.13.1'
-    implementation group: 'org.apache.flink', name: 'flink-streaming-java_2.12', version: '1.13.1'
-    implementation group: 'org.apache.flink', name: 'flink-clients_2.12', version: '1.13.1'
-    implementation 'org.apache.flink:flink-connector-jdbc_2.12:1.13.1'
+    implementation "org.apache.flink:flink-java:${flink_version}"
+    implementation "org.apache.flink:flink-streaming-java_${scala_binary_version}:${flink_version}"
+    implementation "org.apache.flink:flink-clients_${scala_binary_version}:${flink_version}"
     //数据源
-    implementation group: 'org.apache.flink', name: 'flink-walkthrough-common_2.12', version: '1.13.1'
+    implementation "org.apache.flink:flink-walkthrough-common_${scala_binary_version}:${flink_version}"
+
+    implementation "org.apache.flink:flink-connector-jdbc_${scala_binary_version}:${flink_version}"
+
+    implementation "org.apache.flink:flink-connector-elasticsearch6_${scala_binary_version}:${flink_version}"
+
+    implementation "org.apache.flink:flink-connector-hbase_${scala_binary_version}:${flink_version}"
+    implementation "org.apache.hadoop:hadoop-common:2.7.4"
+
+    implementation "org.apache.flink:flink-table-api-java-bridge_${scala_binary_version}:${flink_version}"
+
 }
 
 bootJar {

@@ -1,2 +1,4 @@
-package com.kafka.test;public class Produce2 {
+package com.kafka.test;
+
+public class Produce2 {
 }
