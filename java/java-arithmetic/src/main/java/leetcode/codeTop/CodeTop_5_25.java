@@ -22,7 +22,52 @@ public class CodeTop_5_25 {
         System.out.println(integers);
     }
 
+
     public ListNode reverseKGroup(ListNode head, int k) {
+        ListNode dummy = new ListNode(0);
+        dummy.next = head;
+        ListNode end = dummy;
+        ListNode pre = dummy;
+        // pre ------- end 反转
+        while (end.next!=null){
+            for (int i =0;i<k;i++){
+                end.next=end;
+            }
+            ListNode startNode = pre;
+            ListNode next = end.next;
+            end.next = null;
+            pre.next  = reverse(startNode.next);
+            end.next = next;
+            pre = startNode;
+            end = pre;
+        }
+        return dummy.next;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public ListNode reverseKGroup1(ListNode head, int k) {
         ListNode dummy = new ListNode(0);
         dummy.next = head;
         ListNode pre = dummy;
@@ -36,7 +81,7 @@ public class CodeTop_5_25 {
             ListNode start = pre.next;
             ListNode next = end.next;
             end.next = null;
-            pre.next  = reverse(start);
+            pre.next = reverse(start);
             start.next = next;
             pre = start;
             end = pre;
