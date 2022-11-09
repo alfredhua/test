@@ -21,6 +21,8 @@ public class StockSource implements SourceFunction<StockPrice> {
         this.path = path;
     }
 
+
+
     @Override
     public void run(SourceContext<StockPrice> ctx) throws Exception {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd HHmmss");
