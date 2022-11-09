@@ -17,17 +17,10 @@ dependencies {
     implementation "org.apache.flink:flink-java:${flink_version}"
     implementation "org.apache.flink:flink-streaming-java_${scala_binary_version}:${flink_version}"
     implementation "org.apache.flink:flink-clients_${scala_binary_version}:${flink_version}"
-    //数据源
-    implementation "org.apache.flink:flink-walkthrough-common_${scala_binary_version}:${flink_version}"
-
-    implementation "org.apache.flink:flink-connector-jdbc_${scala_binary_version}:${flink_version}"
-
-    implementation "org.apache.flink:flink-connector-elasticsearch6_${scala_binary_version}:${flink_version}"
-
-//    implementation "org.apache.flink:flink-connector-hbase_${scala_binary_version}:${flink_version}"
-//    implementation "org.apache.hadoop:hadoop-common:2.7.4"
-
+//    implementation "org.apache.flink:flink-walkthrough-common_${scala_binary_version}:${flink_version}"
     implementation "org.apache.flink:flink-table-api-java-bridge_${scala_binary_version}:${flink_version}"
+    implementation "org.apache.flink:flink-table-planner_${scala_binary_version}:${flink_version}"
+
 
 }
 
