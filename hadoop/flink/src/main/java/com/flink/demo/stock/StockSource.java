@@ -37,8 +37,6 @@ public class StockSource implements SourceFunction<StockPrice> {
             stockPrice.setCount(Integer.parseInt(split[4]));
             ctx.collect(stockPrice);
         }
-
-
     }
 
     @Override
