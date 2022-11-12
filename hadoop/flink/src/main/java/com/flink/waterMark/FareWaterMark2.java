@@ -36,12 +36,12 @@ public class FareWaterMark2 {
         DataStream<TaxiFare> timestampsAndWatermarks =
                 sourceDataStream.assignTimestampsAndWatermarks(WatermarkStrategy.<TaxiFare>forMonotonousTimestamps().withTimestampAssigner((fare, t) -> fare.getEventTimeMillis()));
 
-        DataStream<Tuple3<Long, Long, Float>> process = timestampsAndWatermarks
-                .keyBy((TaxiFare fare) -> fare.driverId)
+//        DataStream<Tuple3<Long, Long, Float>> process = timestampsAndWatermarks
+//                .keyBy((TaxiFare fare) -> fare.driverId)
 //                .window(TumblingEventTimeWindows.of(Time.hours(1)))
-                .process(new PseudoWindow(Time.hours(1)));
-        process.addSink(sink);
-        executionEnvironment.execute("hours");
+//                .process(new PseudoWindow(Time.hours(1)));
+//        process.addSink(sink);
+//        executionEnvironment.execute("hours");
     }
 
 

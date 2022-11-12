@@ -8,7 +8,7 @@ import java.util.Random;
 public class Produce {
     public static void main(String[] args) {
         Properties props = new Properties();
-        props.put("bootstrap.servers", "kafka.alfredhua.com:9092");
+        props.put("bootstrap.servers", "mq.alfredhua.com:9092");
         props.put("acks", "all");
         props.put("retries", 0);
         props.put("batch.size", 16384);
@@ -22,7 +22,7 @@ public class Produce {
 //        }
 
         for(int i = 0; i < 100; i++) {
-            producer.send(new ProducerRecord<>("foo", new Random().nextInt() + "", 1 + ""), new Callback() {
+            producer.send(new ProducerRecord<>("user_behavior", new Random().nextInt() + "", 1 + ""), new Callback() {
                 @Override
                 public void onCompletion(RecordMetadata metadata, Exception exception) {
                     System.out.println("------------");

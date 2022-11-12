@@ -23,6 +23,7 @@ public class FlinkSQLDistinctExample {
         StreamTableEnvironment blinkStreamTableEnv =
                 StreamTableEnvironment.create(blinkStreamEnv, blinkStreamSettings);
 
+<<<<<<< HEAD
         String ddlSource = "CREATE TABLE user_behavior (\n" +
                 "    user_id BIGINT,\n" +
                 "    item_id BIGINT,\n" +
@@ -37,6 +38,22 @@ public class FlinkSQLDistinctExample {
                 "    'connector.properties.zookeeper.connect' = 'kafka.alfredhua.com:2181',\n" +
                 "    'connector.properties.bootstrap.servers' = 'kafka.alfredhua.com:9092',\n" +
                 "    'format.type' = 'json'\n" +
+=======
+        String ddlSource = " create table user_behavior ("+
+                    "user_id BIGINT,"+
+                    "item_id BIGINT,"+
+                   "category_id BIGINT,"+
+                    "behavior STRING,"+
+                    "ts TIMESTAMP(3)"+
+                ") WITH ("+
+                   "'connector.type' = 'kafka',"+
+                   "'connector.version' = '0.11', "+
+                   "'connector.topic' = 'user_behavior',"+
+                   "'connector.startup-mode' = 'latest-offset',"+
+                   "'connector.properties.zookeeper.connect' = 'localhost:2181',"+
+                  " 'connector.properties.bootstrap.servers' = 'localhost:9092',"+
+                 "  'format.type' = 'json'"+
+>>>>>>> 7bdef2354a7e2ba1cb6e9d62e9e607291b388054
                 ")";
         blinkStreamTableEnv.executeSql(ddlSource);
 
