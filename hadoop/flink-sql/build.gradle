@@ -1,0 +1,36 @@
+plugins {
+    id "java-library"
+//    id 'maven-publish'
+    id 'org.springframework.boot' version '2.4.1'
+}
+
+
+group 'hbase'
+version "$projectVersion"
+
+ext{
+    scala_binary_version="2.12"
+    flink_version="1.13.1"
+}
+
+dependencies {
+
+    implementation "org.apache.flink:flink-java:${flink_version}"
+    implementation "org.apache.flink:flink-streaming-java_${scala_binary_version}:${flink_version}"
+    implementation "org.apache.flink:flink-clients_${scala_binary_version}:${flink_version}"
+    //数据源
+    implementation "org.apache.flink:flink-walkthrough-common_${scala_binary_version}:${flink_version}"
+    implementation "org.apache.flink:flink-connector-jdbc_${scala_binary_version}:${flink_version}"
+//    implementation "org.apache.flink:flink-connector-elasticsearch6_${scala_binary_version}:${flink_version}"
+
+//    implementation "org.apache.flink:flink-connector-hbase_${scala_binary_version}:${flink_version}"
+    implementation "org.apache.hadoop:hadoop-common:2.7.4"
+//    implementation "org.apache.flink:flink-table-api-java-bridge_${scala_binary_version}:${flink_version}"
+    implementation "org.apache.flink:flink-table-planner-blink_${scala_binary_version}:${flink_version}"
+//    implementation "org.apache.flink:flink-connector-hive_${scala_binary_version}:${flink_version}"
+    implementation "org.apache.flink:flink-connector-kafka_${scala_binary_version}:${flink_version}"
+}
+
+bootJar {
+    mainClassName = 'com.flink.fraud.FraudDetectionJob'
+}

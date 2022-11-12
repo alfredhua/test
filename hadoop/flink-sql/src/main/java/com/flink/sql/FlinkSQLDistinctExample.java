@@ -23,23 +23,21 @@ public class FlinkSQLDistinctExample {
         StreamTableEnvironment blinkStreamTableEnv =
                 StreamTableEnvironment.create(blinkStreamEnv, blinkStreamSettings);
 
-        String ddlSource = """ 
-                create table user_behavior (
-                    user_id BIGINT,
-                    item_id BIGINT,
-                    category_id BIGINT,
-                    behavior STRING,
-                    ts TIMESTAMP(3)
-                ) WITH (
-                   'connector.type' = 'kafka',
-                   'connector.version' = '0.11',
-                   'connector.topic' = 'user_behavior',
-                   'connector.startup-mode' = 'latest-offset',
-                   'connector.properties.zookeeper.connect' = 'localhost:2181',
-                   'connector.properties.bootstrap.servers' = 'localhost:9092',
-                   'format.type' = 'json'
-                )
-                """;
+        String ddlSource = "CREATE TABLE user_behavior (\n" +
+                "    user_id BIGINT,\n" +
+                "    item_id BIGINT,\n" +
+                "    category_id BIGINT,\n" +
+                "    behavior STRING,\n" +
+                "    ts TIMESTAMP(3)\n" +
+                ") WITH (\n" +
+                "    'connector.type' = 'kafka',\n" +
+                "    'connector.version' = 'universal',\n" +
+                "    'connector.topic' = 'user_behavior',\n" +
+                "    'connector.startup-mode' = 'latest-offset',\n" +
+                "    'connector.properties.zookeeper.connect' = 'kafka.alfredhua.com:2181',\n" +
+                "    'connector.properties.bootstrap.servers' = 'kafka.alfredhua.com:9092',\n" +
+                "    'format.type' = 'json'\n" +
+                ")";
         blinkStreamTableEnv.executeSql(ddlSource);
 
         String countSql = "select user_id, count(user_id) from user_behavior group by user_id";
