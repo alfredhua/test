@@ -1,50 +1,42 @@
 package leetcode.type.arr;
 
-import java.util.Arrays;
-
 public class FindKthLargest {
 
     public static void main(String[] args) {
-
+        int[]  nums = new int[]{3,4,5,1,2,6};
+        int kthLargest = new FindKthLargest().findKthLargest(nums, 2);
+        System.out.println(kthLargest);
     }
 
     public int findKthLargest(int[] nums,int k){
-        int mid = nums.length/2;
-        int[] leftNums = Arrays.copyOfRange(nums, 0, mid);
-        int[] rightNums = Arrays.copyOfRange(nums, mid, nums.length);
-        merge(leftNums,rightNums);
-        return 0;
+        get(nums,0,nums.length-1,k);
+        return  nums[k-1];
     }
 
-    public void merge(int[] left, int[] right){
-        int[] nums = new int[left.length+right.length];
-        int leftIndex =0;
-        int rightIndex =0;
-        int k =0;
-        while (leftIndex<left.length && rightIndex< right.length){
-            if (left[leftIndex]<=right[rightIndex]){
-                nums[k] = right[rightIndex];
-                rightIndex++;
-            }
-            if (left[leftIndex]>right[rightIndex]){
-                nums[k] = left[leftIndex];
-                leftIndex++;
-            }
-            k++;
+    public void get(int[] nums, int left, int right,int k){
+        if (left<right){
+            int partion = getPartion(nums, left, right);
+                get(nums,left,partion-1,k);
+            get(nums,partion+1,right,k);
         }
-        if (leftIndex==left.length){
-            while (rightIndex<right.length){
-                nums[k++]= nums[rightIndex];
-                rightIndex++;
-            }
-        }
-        if (rightIndex == right.length){
-            while (leftIndex<left.length){
-                nums[k++]= nums[leftIndex];
-                leftIndex++;
-            }
-        }
-
     }
 
+    public int getPartion(int[] nums, int left, int right){
+        // 比 mid 大的 放在左边，小的放在右边
+        int index = left +1;
+        for (int i =index;i<=right;i++){
+            if (nums[i]>nums[left]){
+                swap(nums,i,index);
+                index ++;
+            }
+        }
+        swap(nums,left,index-1);
+        return index - 1;
+    }
+
+    public  void swap(int[] nums,int i , int index){
+        int temp = nums[i];
+        nums[i] = nums[index];
+        nums[index] = temp;
+    }
 }
