@@ -12,32 +12,37 @@ public class ReverseKGroup {
     }
 
     public ListNode reverseKGroup(ListNode head, int k) {
-        ListNode startNode = null;
-        ListNode endNode = null;
-        ListNode currentNode = head;
-        int i = 0;
-        while (currentNode !=null){
-            if (i == k){
-                endNode  =  currentNode;
-                //这里反转
-                endNode.next = null;
-                
-                i=0;
+        ListNode dump = new ListNode(0);
+        dump.next = head;
+        ListNode pre = dump;
+        ListNode endNode = dump;
+        while (endNode.next !=null){
+            for (int i =0;i<k & endNode!=null;i++){
+                endNode = endNode.next;
             }
-            if (i == 1 ){
-                startNode = currentNode;
+            if (endNode==null){
+                break;
             }
-            currentNode = currentNode.next;
-            i++;
+            // 第一步 将endNode断开
+            ListNode startNode = pre.next;
+            ListNode nextNode = endNode.next;
+            endNode.next = null;
+            // 反转;
+            pre.next = reverse(startNode);
+            //重新链接
+            startNode.next = nextNode;
+            pre = startNode;
+
+            endNode = pre;
         }
-        return null;
+        return dump.next;
     }
 
     public ListNode reverse(ListNode head){
         ListNode pre = null;
         ListNode current = head;
         while (current!=null){
-            ListNode temp = head.next;
+            ListNode temp = current.next;
             current.next = pre;
             pre = current;
             current = temp;
