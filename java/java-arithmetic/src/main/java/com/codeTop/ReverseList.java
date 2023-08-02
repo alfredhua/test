@@ -29,7 +29,6 @@ public class ReverseList {
             currentNode.next = pre;
             pre = currentNode;
             currentNode = temp;
-
         }
         return pre;
     }
