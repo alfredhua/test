@@ -5,6 +5,7 @@ public class NextPermutation {
     public static void main(String[] args) {
 
     }
+
     public void nextPermutation(int[] nums) {
         if (nums == null || nums.length == 0) return;
         // 找出 num[i]M <num[i+1] 最大的索引
