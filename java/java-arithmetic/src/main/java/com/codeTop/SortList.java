@@ -6,8 +6,8 @@ public class SortList {
 
     public static void main(String[] args) {
         ListNode listNode = ListNode.createListNode(new int[]{4, 3, 1, 2, 8, 10, -4});
-        new SortList().insertionSortList(listNode);
-        System.out.println(listNode.printListNode());
+        ListNode listNode1 = new SortList().insertionSortList(listNode);
+        System.out.println(listNode1.printListNode());
 
     }
 
@@ -36,4 +36,6 @@ public class SortList {
         }
         return dump.next;
     }
+
+
 }
