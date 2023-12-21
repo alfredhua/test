@@ -13,7 +13,7 @@ public class MinSubArrayLen {
         int ans = Integer.MAX_VALUE;
         while (end < nums.length) {
             temp = temp + nums[end];
-            while (temp > target) {
+            while (temp >= target) {
                 ans = Math.min(ans, end - start + 1);
                 temp = temp - nums[start];
                 start++;
