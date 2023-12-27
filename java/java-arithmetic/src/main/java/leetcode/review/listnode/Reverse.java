@@ -1,9 +1,6 @@
 package leetcode.review.listnode;
 
 import leetcode.helper.ListNode;
-import lombok.val;
-
-import java.util.List;
 
 public class Reverse {
 
