@@ -1,0 +1,53 @@
+{
+  "short_name": "React App",
+  "name": "Chrome插件 Test",
+  "version": "1.0",
+  "description": "React开发chrome插件V3 Demo。",
+  "manifest_version": 3,
+  "background": { 
+    "service_worker": "static/js/background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.baidu.com"],
+      "css": ["static/css/content.css"],
+      "js": ["static/js/content.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "permissions": ["storage","declarativeContent"],
+  "host_permissions":[],
+  "web_accessible_resources": [
+    {
+      "resources": [ "/images/app.png" ],
+      "matches": ["https://www.baidu.com"]
+    }
+  ],
+  "action": {
+    "default_popup": "index.html",
+    "default_icon": {
+      "16": "/images/app.png",
+      "32": "/images/app.png",
+      "48": "/images/app.png",
+      "128": "/images/app.png"
+    },
+    "default_title": "chrome Test"
+  },
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "logo192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "logo512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ]
+}
